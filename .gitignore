@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.vscode/
+.idea/
+tmp/
+*.log
+
+# Private working documents & acquisition materials (prevent public exposure on Vercel)
+*.docx
+*.pdf
+output/

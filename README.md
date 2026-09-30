@@ -15,8 +15,14 @@ Repository: `https://github.com/strategiepilot/profil`
 - **CAR-Format für Flaggschiff-Turn-Arounds**:
   - **Burger King Corp. (Miami/USA)**: P&L-Turn-Around, >7.000 Restaurants, Sanierung der Preispromotions.
   - **Fitness First Germany**: Relaunch, Digitalisierung der Lead-Kanäle (300k+ Leads p.a., >20% Zuwachs).
+- **Foto-Implementierung (Flexibel & Anglo-American Ready)**:
+  - Runder Container (`w-24 h-24`, dezent gerahmt) mit automatischer Fallback-Unterstützung auf `avatar.svg` oder echtes Foto via `./avatar.jpg`.
+  - Kann über den Schalter *"Foto"* in der Aktionsleiste oder via CSS-Klasse `.no-photo` / `.hidden` für internationale / angloamerikanische Märkte ohne Layout-Verschiebung ausgeblendet werden.
+- **Monochrome Trust-Logobar**:
+  - Direkt unter dem Key-Metrics-Grid als visueller Markenanker platziert.
+  - Vektor-Markenzeichen von *McDonald's*, *Burger King*, *LEGOLAND*, *Fitness First* und *Danone* in elegantem Slate-Look mit vollständigen `title`- und `aria-label`-Attributen für Barrierefreiheit und ATS-Parser.
 - **Modularer Provider-Modus (Blindprofil)**:
-  - Über den Schalter in der schwebenden Aktionsleiste kann das Profil mit einem Klick in ein anonymisiertes Provider-Exposé umgeschaltet werden (Name & Kontaktdaten werden durch eine neutrale Kennung ersetzt).
+  - Über den Schalter in der schwebenden Aktionsleiste kann das Profil mit einem Klick in ein anonymisiertes Provider-Exposé umgeschaltet werden (Name & Kontaktdaten werden durch eine neutrale Kennung ersetzt, Foto wird automatisch ausgeblendet).
 - **Direkter PDF-Druck**: Schwebender Action-Button oben rechts (`window.print()`), im Druckdialog automatisch via `print:hidden` ausgeblendet.
 
 ---

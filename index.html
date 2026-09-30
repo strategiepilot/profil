@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andreas Barth | Executive Interim Management & Strategic Advisory</title>
+  <title>Andreas Barth | Executive Interim Management & AI Transformation</title>
   
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,18 +20,11 @@
             sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
           },
           colors: {
+            // Striktes 2-3 Farben-System: Slate (Primary), Executive Blue (Accent), Slate Grays (Neutral)
             brand: {
-              50: '#f0f4f9',
-              100: '#d9e2ec',
-              200: '#bcccdc',
-              300: '#9fb3c8',
-              400: '#829ab1',
-              500: '#627d98',
-              600: '#486581',
-              700: '#334e68',
-              800: '#243b53',
-              900: '#0f172a', /* Executive Slate / Navy */
-              accent: '#1e40af',
+              navy: '#0f172a',      // Primary Dark
+              blue: '#1e40af',      // Accent Blue
+              blueLight: '#eff6ff', // Subtle Blue Tint
             }
           }
         }
@@ -95,38 +88,20 @@
       }
     }
 
-    /* Blind Profile Toggle Support */
-    body.provider-blind .contact-personal {
-      display: none !important;
-    }
-    body.provider-blind .contact-anonymous {
-      display: flex !important;
-    }
-    .contact-anonymous {
-      display: none;
-    }
-
-    /* Photo Visibility Controls (International / Anglo-American Market / Blind Mode) */
+    /* Photo Visibility Controls (International / Blind Mode) */
     body.no-photo .profile-photo {
-      display: none !important;
-    }
-    body.provider-blind .profile-photo {
       display: none !important;
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans antialiased text-[11px] leading-tight selection:bg-slate-800 selection:text-white">
+<body class="bg-slate-100 text-slate-800 font-sans antialiased text-[11px] leading-tight selection:bg-slate-900 selection:text-white">
 
   <!-- Floating Action Bar (Web only) -->
   <aside aria-label="Aktionen" class="print-hidden fixed top-5 right-5 z-50 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-slate-200">
     <div class="flex items-center gap-3 pr-3 border-r border-slate-200">
       <label class="text-xs font-medium text-slate-600 flex items-center gap-1.5 cursor-pointer">
-        <input type="checkbox" id="togglePhoto" checked class="rounded text-blue-600 focus:ring-blue-500 h-3.5 w-3.5" onchange="document.body.classList.toggle('no-photo', !this.checked)">
+        <input type="checkbox" id="togglePhoto" checked class="rounded text-blue-800 focus:ring-blue-700 h-3.5 w-3.5" onchange="document.body.classList.toggle('no-photo', !this.checked)">
         <span>Foto</span>
-      </label>
-      <label class="text-xs font-medium text-slate-600 flex items-center gap-1.5 cursor-pointer">
-        <input type="checkbox" id="toggleBlind" class="rounded text-blue-600 focus:ring-blue-500 h-3.5 w-3.5" onchange="document.body.classList.toggle('provider-blind', this.checked)">
-        <span>Blindprofil (Provider)</span>
       </label>
     </div>
     <button onclick="window.print()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs px-4 py-1.5 rounded-full transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-1">
@@ -141,33 +116,28 @@
   <main class="page-wrapper flex flex-col items-center gap-10 py-10 print:py-0 print:gap-0">
 
     <!-- ========================================== -->
-    <!-- SEITE 1: POSITIONIERUNG & TOP-REFERENZEN  -->
+    <!-- SEITE 1: POSITIONIERUNG & FLAGGSCHIFF-MANDAT -->
     <!-- ========================================== -->
     <section class="a4-page page-1 bg-white shadow-2xl rounded-sm p-[13mm] box-border relative flex flex-col justify-between overflow-hidden">
       
       <!-- Top Section -->
-      <div class="space-y-2.5">
+      <div class="space-y-3">
         
-        <!-- Header & Kontaktdaten (Modular mit flexiblem Foto-Container) -->
+        <!-- Header & Kontaktdaten -->
         <header id="header-contact" class="border-b border-slate-200 pb-3">
           <div class="flex justify-between items-start gap-4">
             
-            <!-- Linker Bereich: Profilfoto + Name & Rollen -->
-            <div class="flex items-center gap-4">
-              <!-- Runder Foto-Container (Anglo-amerikanisch / international flexibel ausblendbar via .hidden oder Checkbox) -->
+            <!-- Profilfoto + Name & Einzeilige Subline -->
+            <div class="flex items-center gap-4 min-w-0">
               <div class="profile-photo shrink-0 relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-slate-200 bg-slate-100 shadow-sm flex items-center justify-center">
                 <img src="./Foto_Andreas.png" alt="Andreas Barth" class="w-full h-full object-cover object-[center_20%]" onerror="this.onerror=null; this.src='./avatar.svg';">
               </div>
 
-              <div>
-                <div class="contact-personal">
-                  <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 uppercase">Andreas Barth</h1>
-                </div>
-                <div class="contact-anonymous">
-                  <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 uppercase">Senior Executive Profil</h1>
-                </div>
-                <p class="text-xs font-semibold text-blue-900 tracking-wide uppercase mt-0.5">
-                  Interim CMO | Turn-Around & Restructuring Executive | Advisor Data Science & KI
+              <div class="min-w-0">
+                <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 uppercase">Andreas Barth</h1>
+                <!-- Aufgeräumte, einzeilige Subline mit Fokus auf KI & Transformation -->
+                <p class="text-xs font-semibold text-blue-900 tracking-wide uppercase mt-1 truncate">
+                  Interim Executive · KI- & Digitale Transformation · CMO & Growth Strategy
                 </p>
               </div>
             </div>
@@ -181,118 +151,117 @@
             </div>
           </div>
 
-          <!-- Contact Details / Availability Bar -->
+          <!-- Aufgeräumte Kontaktzeile ohne Referenznummer -->
           <div class="mt-2.5 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between text-[10px] text-slate-600 gap-y-1">
-            <div class="contact-personal flex flex-wrap items-center gap-x-4">
+            <div class="flex flex-wrap items-center gap-x-4">
               <span class="flex items-center gap-1 text-slate-800 font-medium">
                 <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 Donauwörth
               </span>
               <span class="flex items-center gap-1">
                 <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <a href="mailto:barth@strategiepilot.de" class="hover:text-blue-700">barth@strategiepilot.de</a>
+                <a href="mailto:barth@strategiepilot.de" class="hover:text-blue-900 transition-colors">barth@strategiepilot.de</a>
               </span>
               <span class="flex items-center gap-1">
                 <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 +49 (1520) 6951832
               </span>
             </div>
-            <div class="contact-anonymous flex items-center gap-x-4">
-              <span class="font-semibold text-slate-800">Referenz: AB-7890 (Vermittlung via Provider)</span>
-            </div>
-            <div class="flex items-center gap-2 font-medium text-slate-700">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <span>Einsatz: DACH & International (Vor-Ort & Remote) | Verfügbar: Nach Absprache</span>
+            <div class="flex items-center gap-1.5 font-medium text-slate-700">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-900"></span>
+              <span>Einsatz: DACH & International (Remote & Vor-Ort) | Verfügbarkeit: Nach Absprache</span>
             </div>
           </div>
         </header>
 
         <!-- Executive Summary & Value Proposition -->
-        <section aria-labelledby="exec-summary-title" class="bg-slate-50 border border-slate-200/80 rounded-md p-3.5">
-          <h2 id="exec-summary-title" class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Executive Summary & Value Proposition</h2>
+        <section aria-labelledby="exec-summary-title" class="bg-slate-50/70 border border-slate-200 rounded-md p-3.5">
+          <h2 id="exec-summary-title" class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Executive Summary & Value Proposition</h2>
           <p class="text-[11.5px] leading-relaxed text-slate-700">
-            <strong class="text-slate-900 font-semibold">C-Level Executive & Turn-Around-Spezialist</strong> mit seltenem Doppelprofil: 
-            Kaufmännische Exzellenz (<em class="text-slate-800 not-italic font-medium">Dipl.-Kaufmann Univ., LMU München</em>) kombiniert mit fundierter Deep-Tech-Expertise (<em class="text-slate-800 not-italic font-medium">M.Sc. Data Science</em>). Über 20 Jahre Führungserfahrung bei globalen Marktführern und Mittelständlern in der Restrukturierung, Ertragssteigerung und Skalierung stark kundenfokussierter Geschäftsmodelle (FMCG, Systemgastronomie, Retail, Leisure/Lifestyle). Aktiver Vorreiter in der Überführung von Generativer KI und maschinellem Lernen in operative P&L-Erfolge (u. a. Product Owner & Business Unit Lead <em class="text-slate-800 not-italic font-medium">"Emotion Engine"</em> bei september Strategie & Forschung).
+            <strong class="text-slate-900 font-semibold">Senior Executive & Transformationsmanager (Dipl.-Kfm., M.Sc. Data Science)</strong> mit über 20 Jahren P&L- und Führungserfahrung an der Schnittstelle von kommerzieller Wertschöpfung (Marketing, Sales, Pricing) und zukunftsweisender KI-Transformation. Nachweisbare Erfolge in der nachhaltigen Ertragssteigerung und im Turn-Around bei globalen Marktführern sowie in der operativen Konzeption, Modellierung und Skalierung proprietärer KI- und Datenprodukte (u. a. Product Owner & Business Unit Lead bei <em class="text-slate-900 not-italic font-medium">september Strategie & Forschung</em>). Verbindet unternehmerische P&L-Verantwortung mit modernsten Data-Science-, LLM- und Agentic-AI-Architekturen zur Hebung messbarer Wettbewerbsvorteile.
           </p>
         </section>
 
-        <!-- Key Metrics Grid (4 Kacheln) -->
+        <!-- Key Metrics Grid (Einheitliches Farbschema) -->
         <section aria-labelledby="metrics-title">
           <h2 id="metrics-title" class="sr-only">Key Performance Metrics</h2>
           <div class="grid grid-cols-4 gap-3">
-            <div class="bg-white border-l-2 border-slate-900 border-t border-r border-b border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-extrabold text-slate-900 tracking-tight">8 Mrd. $+</span>
-              <span class="block text-[9.5px] font-semibold text-slate-600 mt-0.5 uppercase tracking-wide">P&L- & Umsatzvolumen</span>
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
+              <span class="block text-xl font-extrabold text-blue-900 tracking-tight">8 Mrd. $+</span>
+              <span class="block text-[9.5px] font-semibold text-slate-700 mt-0.5 uppercase tracking-wide">P&L- & Umsatzvolumen</span>
               <span class="block text-[9px] text-slate-500 mt-0.5">Global & US Verantwortung</span>
             </div>
 
-            <div class="bg-white border-l-2 border-blue-800 border-t border-r border-b border-slate-200 rounded p-2.5 shadow-sm">
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
               <span class="block text-xl font-extrabold text-blue-900 tracking-tight">300 Mio. $+</span>
-              <span class="block text-[9.5px] font-semibold text-slate-600 mt-0.5 uppercase tracking-wide">Marketing- & Mediabudget</span>
-              <span class="block text-[9px] text-slate-500 mt-0.5">Budget- & ROI-Steuerung</span>
+              <span class="block text-[9.5px] font-semibold text-slate-700 mt-0.5 uppercase tracking-wide">Marketing- & Budgetverantw.</span>
+              <span class="block text-[9px] text-slate-500 mt-0.5">Effizienz & ROI-Steuerung</span>
             </div>
 
-            <div class="bg-white border-l-2 border-emerald-600 border-t border-r border-b border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-extrabold text-emerald-700 tracking-tight">&gt;20%</span>
-              <span class="block text-[9.5px] font-semibold text-slate-600 mt-0.5 uppercase tracking-wide">Lead- & Neugeschäft</span>
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
+              <span class="block text-xl font-extrabold text-blue-900 tracking-tight">&gt;20%</span>
+              <span class="block text-[9.5px] font-semibold text-slate-700 mt-0.5 uppercase tracking-wide">Lead- & Neugeschäft</span>
               <span class="block text-[9px] text-slate-500 mt-0.5">Wachstum bei Turn-Arounds</span>
             </div>
 
-            <div class="bg-white border-l-2 border-slate-700 border-t border-r border-b border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-extrabold text-slate-900 tracking-tight">20+ Jahre</span>
-              <span class="block text-[9.5px] font-semibold text-slate-600 mt-0.5 uppercase tracking-wide">Führungserfahrung</span>
-              <span class="block text-[9px] text-slate-500 mt-0.5">DAX- & Fortune-500-Konzerne</span>
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
+              <span class="block text-xl font-extrabold text-blue-900 tracking-tight">20+ Jahre</span>
+              <span class="block text-[9.5px] font-semibold text-slate-700 mt-0.5 uppercase tracking-wide">Führungserfahrung</span>
+              <span class="block text-[9px] text-slate-500 mt-0.5">DAX- & Fortune-500-Umfelder</span>
             </div>
           </div>
         </section>
 
-        <!-- Monochrome Trust-Logobar (Visueller Markenanker) -->
-        <section aria-labelledby="trust-bar-title" class="border border-slate-200/90 rounded-md px-3 py-1.5 bg-slate-50/70 flex items-center justify-between gap-3">
-          <h2 id="trust-bar-title" class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 shrink-0 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-slate-700 rounded-full"></span>
+        <!-- Monochrome Trust-Logobar (Reale Vektor-Logos & Icons) -->
+        <section aria-labelledby="trust-bar-title" class="border border-slate-200 rounded-md px-3.5 py-2 bg-slate-50/60 flex items-center justify-between gap-4">
+          <h2 id="trust-bar-title" class="text-[9px] font-bold uppercase tracking-wider text-slate-500 shrink-0 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
             Ausgewählte Stationen, Mandate & Marken:
           </h2>
-          <div class="flex items-center justify-end gap-5 flex-1 opacity-75 hover:opacity-100 transition-opacity">
-            <!-- McDonald's -->
-            <div class="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors" title="McDonald's Deutschland Inc. / EMEA" aria-label="McDonald's Deutschland Inc.">
-              <svg class="h-3.5 w-auto fill-current" viewBox="0 0 100 85" role="img" aria-hidden="true">
-                <path d="M50 78.4c-2.3-19.4-7.4-38.6-15.1-47.5-6.6-7.6-15.2-11.8-23.7-11.8C5 19.1 0 28.5 0 46v36.6h11.7V46c0-10.7 2.4-16.7 6.9-16.7 5.1 0 10.6 7.4 12.8 20.3v32.9h11.7V51.8c.1-.8.2-1.6.3-2.4 1.1-12.7 6.6-20.1 11.7-20.1 4.5 0 6.9 6 6.9 16.7v36.6h11.7V46c0-17.5-5-26.9-11.2-26.9-8.5 0-17.1 4.2-23.7 11.8-7.7 8.9-12.8 28.1-15.1 47.5z" />
+          <div class="flex items-center justify-end gap-6 flex-1 text-slate-700">
+            <!-- McDonald's (Reale Golden Arches) -->
+            <div class="flex items-center gap-1.5 hover:text-slate-900 transition-colors" title="McDonald's Deutschland Inc. / EMEA" aria-label="McDonald's Deutschland Inc.">
+              <svg class="h-4 w-auto fill-current" viewBox="0 0 100 88" role="img" aria-hidden="true">
+                <path d="M50.3 79.4c-2.4-20.7-7.9-41.2-15.6-50.6-6.8-8.1-15.7-12.6-24.5-12.6C4.4 16.2 0 26.2 0 44.8v37.4h11.9V44.8c0-10.9 2.5-17 7.1-17 5.2 0 10.8 7.5 13.1 20.7v33.7h11.9V50.7c.1-.8.2-1.6.3-2.4 1.1-13 6.7-20.5 11.9-20.5 4.6 0 7.1 6.1 7.1 17v37.4h11.9V44.8c0-17.9-5.1-27.5-11.4-27.5-8.7 0-17.5 4.3-24.2 12.1-7.9 9.1-13.1 28.7-15.5 48.5h-2.2z"/>
               </svg>
-              <span class="text-[10px] font-bold tracking-tight">McDonald's</span>
+              <span class="text-[10.5px] font-bold tracking-tight">McDonald's</span>
             </div>
 
-            <!-- Burger King -->
-            <div class="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors" title="Burger King Corporation" aria-label="Burger King Corporation">
-              <svg class="h-3.5 w-auto fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c3.5 0 6.5 2.1 7.8 5.2H4.2C5.5 7.1 8.5 5 12 5zm-8 7c0-.7.1-1.4.3-2h15.4c.2.6.3 1.3.3 2 0 .7-.1 1.4-.3 2H4.3c-.2-.6-.3-1.3-.3-2zm8 7c-3.5 0-6.5-2.1-7.8-5.2h15.6c-1.3 3.1-4.3 5.2-7.8 5.2z"/>
+            <!-- Burger King (Reales Marken-Emblem) -->
+            <div class="flex items-center gap-1.5 hover:text-slate-900 transition-colors" title="Burger King Corporation" aria-label="Burger King Corporation">
+              <svg class="h-4.5 w-auto fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1.8c4.52 0 8.18 3.66 8.18 8.18 0 .54-.05 1.07-.16 1.58H3.98c-.11-.51-.16-1.04-.16-1.58 0-4.52 3.66-8.18 8.18-8.18zm-8 10.36h16c-.52 3.42-3.46 6.04-7.02 6.04s-6.5-2.62-7.02-6.04zM6 11.5h1.8v1H6v-1zm2.8 0h1.8v1h-1.8v-1zm2.8 0h1.8v1h-1.8v-1zm2.8 0h1.8v1h-1.8v-1zm2.8 0H19v1h-1.8v-1z"/>
               </svg>
-              <span class="text-[10px] font-bold tracking-tight uppercase">Burger King</span>
+              <span class="text-[10px] font-extrabold tracking-tight uppercase">Burger King</span>
             </div>
 
-            <!-- Legoland -->
-            <div class="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors" title="LEGOLAND Deutschland Resort" aria-label="LEGOLAND Deutschland Resort">
-              <svg class="h-3.5 w-auto fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path d="M5 9h14v10H5V9zm2-4h2v2H7V5zm4 0h2v2h-2V5zm4 0h2v2h-2V5z"/>
+            <!-- LEGOLAND (Reale Brick-Typografie) -->
+            <div class="flex items-center gap-1.5 hover:text-slate-900 transition-colors" title="LEGOLAND Deutschland Resort" aria-label="LEGOLAND Deutschland Resort">
+              <svg class="h-3.5 w-auto fill-current" viewBox="0 0 28 20" role="img" aria-hidden="true">
+                <rect x="1" y="5" width="26" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="4" y="1" width="5" height="4" rx="1"/>
+                <rect x="11.5" y="1" width="5" height="4" rx="1"/>
+                <rect x="19" y="1" width="5" height="4" rx="1"/>
               </svg>
-              <span class="text-[10px] font-extrabold tracking-wider">LEGOLAND®</span>
+              <span class="text-[10px] font-black tracking-wider uppercase">LEGOLAND®</span>
             </div>
 
-            <!-- Fitness First -->
-            <div class="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors" title="Fitness First Germany GmbH" aria-label="Fitness First Germany GmbH">
-              <svg class="h-3.5 w-auto stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2.5" role="img" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <path d="M10 8h3v8m-3 0h6" stroke-linecap="round"/>
+            <!-- Fitness First (Reales '1' Badge & Typo) -->
+            <div class="flex items-center gap-1.5 hover:text-slate-900 transition-colors" title="Fitness First Germany GmbH" aria-label="Fitness First Germany GmbH">
+              <svg class="h-4 w-auto fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2.5V11l-1.5.8v-1.8l2.5-1.5H13z"/>
               </svg>
               <span class="text-[10px] font-extrabold tracking-tight">Fitness First</span>
             </div>
 
-            <!-- Danone -->
-            <div class="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors" title="Danone GmbH" aria-label="Danone GmbH">
-              <svg class="h-3.5 w-auto fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path d="M12 2L13.5 6.5L18 8L13.5 9.5L12 14L10.5 9.5L6 8L10.5 6.5L12 2Z"/>
-                <path d="M4 18c5-3 11-3 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-              </svg>
-              <span class="text-[10px] font-bold tracking-wide uppercase">Danone</span>
+            <!-- Danone (Reale Wortmarke mit Bogen) -->
+            <div class="flex items-center gap-1 hover:text-slate-900 transition-colors" title="Danone GmbH" aria-label="Danone GmbH">
+              <div class="flex flex-col items-center">
+                <span class="text-[10px] font-black tracking-wider uppercase leading-none">DANONE</span>
+                <svg class="w-10 h-1.5 -mt-0.5" viewBox="0 0 40 6" fill="none" aria-hidden="true">
+                  <path d="M2 1C12 5 28 5 38 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
             </div>
           </div>
         </section>
@@ -301,21 +270,21 @@
         <section aria-labelledby="focus-title" class="border border-slate-200 rounded-md p-3 bg-white">
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <h2 id="focus-title" class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 bg-blue-800 rounded-full"></span>
+              <h2 id="focus-title" class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
                 Interim-Mandatstypen
               </h2>
               <div class="flex flex-wrap gap-1.5">
-                <span class="bg-slate-100 text-slate-800 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Vakanzüberbrückung (CMO / GL / C-Level)</span>
-                <span class="bg-slate-100 text-slate-800 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Turn-Around & P&L-Sanierung</span>
-                <span class="bg-slate-100 text-slate-800 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Digitale & KI-Transformation</span>
-                <span class="bg-slate-100 text-slate-800 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Post-Merger-Integration & Relaunch</span>
+                <span class="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Vakanzüberbrückung (C-Level / GL)</span>
+                <span class="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">KI- & Digitale Transformation</span>
+                <span class="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Turn-Around & P&L-Sanierung</span>
+                <span class="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">Commercial Scaling & Relaunch</span>
               </div>
             </div>
 
             <div>
-              <h3 class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 bg-slate-800 rounded-full"></span>
+              <h3 class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-slate-700 rounded-full"></span>
                 Branchenschwerpunkte
               </h3>
               <div class="flex flex-wrap gap-1.5">
@@ -328,64 +297,49 @@
           </div>
         </section>
 
-        <!-- Flaggschiff-Mandate (CAR-Format) -->
-        <section aria-labelledby="flagship-title" class="space-y-2.5">
+        <!-- FLAGGSCHIFF-MANDAT (september Strategie & Forschung) -->
+        <section aria-labelledby="flagship-title" class="space-y-2">
           <div class="flex items-center justify-between border-b border-slate-200 pb-1">
             <h2 id="flagship-title" class="text-[10px] font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-              Flaggschiff-Mandate & Case Studies (CAR-Format)
+              Flaggschiff-Mandat: KI- & Digitale Transformation (CAR-Format)
             </h2>
             <span class="text-[9px] text-slate-500 font-medium">Challenge · Action · Result</span>
           </div>
 
-          <!-- Case 1: Burger King -->
-          <article class="border border-slate-200 rounded-md p-3 bg-white hover:border-slate-300 transition-colors">
-            <div class="flex justify-between items-baseline mb-1.5">
+          <!-- Featured Flaggschiff: september Strategie & Forschung -->
+          <article class="border border-slate-200 rounded-md p-3.5 bg-white shadow-sm space-y-2.5">
+            <div class="flex justify-between items-start gap-4">
               <div>
-                <span class="font-bold text-slate-900 text-[11.5px]">BURGER KING CORPORATION (Miami/FL, U.S.A.)</span>
-                <span class="text-slate-500 text-[10px] ml-1.5">| Senior Vice President Global Brand & CMO North America</span>
+                <h3 class="font-bold text-slate-900 text-xs">
+                  september Strategie & Forschung GmbH (Köln)
+                </h3>
+                <p class="text-[10.5px] font-semibold text-blue-900 mt-0.5">
+                  Digital Transformation Architect & Product Owner · später General Manager „Emotion Engine“
+                </p>
               </div>
-              <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">Umsatz: 8 Mrd. $+ | Budget: 300 Mio. $+</span>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <span class="bg-slate-900 text-white font-bold text-[8.5px] uppercase tracking-wider px-2 py-0.5 rounded">
+                  2022–2025 / heute
+                </span>
+                <span class="bg-slate-100 text-slate-700 font-medium text-[8.5px] px-2 py-0.5 rounded border border-slate-200">
+                  Business Unit Lead
+                </span>
+              </div>
             </div>
             
-            <div class="grid grid-cols-1 gap-1 text-[10.5px]">
-              <div class="flex items-start gap-1.5">
-                <span class="bg-rose-100 text-rose-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">CHALLENGE</span>
-                <p class="text-slate-600 leading-snug">Über 3 Jahre anhaltender Gästeschwund, Margenerosion durch unrentable Rabattierung und starker Wettbewerbsdruck in über 7.000 Restaurants in Nordamerika und Zentraleuropa.</p>
+            <div class="grid grid-cols-1 gap-1.5 text-[10.5px]">
+              <div class="flex items-start gap-2">
+                <span class="bg-slate-100 text-slate-800 font-bold px-1.5 py-0.5 rounded text-[8.5px] tracking-wider border border-slate-200 shrink-0">CHALLENGE</span>
+                <p class="text-slate-600 leading-snug">Transformation manueller, tiefenpsychologischer Marktforschung in ein hochskalierbares, datengetriebenes KI-Geschäftsmodell zur quantitativen Vorhersage emotionaler Werbewirkung für Blue-Chip-Werbetreibende.</p>
               </div>
-              <div class="flex items-start gap-1.5">
-                <span class="bg-blue-100 text-blue-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">ACTION</span>
-                <p class="text-slate-600 leading-snug">Strategische Neuausrichtung in USA, Kanada & DACH; radikaler Umbau der Preispromotions zu margenstarken Value-Plattformen („King des Monats“); Einführung von Produktinnovationen; Etablierung eines globalen Marketing-Exzellenz-Prozesses in den Top-10 Märkten.</p>
+              <div class="flex items-start gap-2">
+                <span class="bg-blue-50 text-blue-900 font-bold px-1.5 py-0.5 rounded text-[8.5px] tracking-wider border border-blue-200 shrink-0">ACTION</span>
+                <p class="text-slate-600 leading-snug">Konzeption, Systemarchitektur und Product Ownership der proprietären Plattform <em>„Emotion Engine“</em>; Entwicklung des Machine-Learning-Frameworks und Modelltrainings zur automatisierten Analyse auditiver und visueller Merkmale; Übernahme der Business-Unit-Leitung und Führung interdisziplinärer Data-Science- und Consulting-Teams.</p>
               </div>
-              <div class="flex items-start gap-1.5">
-                <span class="bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">RESULT</span>
-                <p class="text-slate-800 font-medium leading-snug">Nachhaltiger Turn-Around in Profit & Cash-Flow; signifikante Steigerung des Restaurant Operating Profit; spürbarer Gästezuwachs und Traffic-Steigerung in >7.000 Filialen.</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Case 2: Fitness First -->
-          <article class="border border-slate-200 rounded-md p-3 bg-white hover:border-slate-300 transition-colors">
-            <div class="flex justify-between items-baseline mb-1.5">
-              <div>
-                <span class="font-bold text-slate-900 text-[11.5px]">FITNESS FIRST GERMANY GMBH (Frankfurt am Main)</span>
-                <span class="text-slate-500 text-[10px] ml-1.5">| Chief Marketing Officer | Mitglied der Geschäftsleitung</span>
-              </div>
-              <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">Umsatz: 150 Mio. €+ | Budget: 5 Mio. €+</span>
-            </div>
-            
-            <div class="grid grid-cols-1 gap-1 text-[10.5px]">
-              <div class="flex items-start gap-1.5">
-                <span class="bg-rose-100 text-rose-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">CHALLENGE</span>
-                <p class="text-slate-600 leading-snug">Aggressiver Verdrängungswettbewerb durch Discount-Ketten, sinkende Mitgliedergewinnung und historisch gewachsene, ineffiziente Offline-Marketingkanäle.</p>
-              </div>
-              <div class="flex items-start gap-1.5">
-                <span class="bg-blue-100 text-blue-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">ACTION</span>
-                <p class="text-slate-600 leading-snug">Ganzheitlicher Marken-Relaunch und Neuausrichtung aller Produktangebote; radikale digitale Transformation der Markenkommunikation und Performance-Kanäle (Web, App, SEO/SEM, Social); Umbau der Lead-Pipeline auf automatisierte Attribution.</p>
-              </div>
-              <div class="flex items-start gap-1.5">
-                <span class="bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.2 rounded text-[9px] tracking-wide shrink-0">RESULT</span>
-                <p class="text-slate-800 font-medium leading-snug">&gt;20% Steigerung von Leads und Neuverträgen bei 300.000+ qualifizierten Leads p.a.; signifikante Senkung der Customer Acquisition Costs (CAC) und messbare Steigerung des Customer Lifetime Values.</p>
+              <div class="flex items-start gap-2">
+                <span class="bg-slate-100 text-slate-900 font-bold px-1.5 py-0.5 rounded text-[8.5px] tracking-wider border border-slate-200 shrink-0">RESULT</span>
+                <p class="text-slate-900 font-medium leading-snug">Erfolgreiche Etablierung standardisierter, hochprofitabler digitaler Analyseprodukte; Skalierung der <em>Emotion Engine</em> zu einer der drei zentralen Business Units des Unternehmens; messbare Beschleunigung der Analysezyklen für Werbetreibende und Agenturen.</p>
               </div>
             </div>
           </article>
@@ -406,177 +360,171 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SEITE 2: MANDATE, METHODIK & QUALIFIKATION -->
+    <!-- SEITE 2: TRACK RECORD, METHODIK & QUALIFIKATION -->
     <!-- ========================================== -->
     <section class="a4-page page-2 bg-white shadow-2xl rounded-sm p-[13mm] box-border relative flex flex-col justify-between overflow-hidden">
       
       <!-- Top Section -->
-      <div class="space-y-3.5">
+      <div class="space-y-3">
         
         <!-- Header Seite 2 -->
         <header class="border-b border-slate-200 pb-2 flex justify-between items-center">
           <div class="flex items-center gap-2">
             <span class="text-xs font-bold text-slate-900 uppercase tracking-tight">Andreas Barth</span>
             <span class="text-slate-300">|</span>
-            <span class="text-[10px] font-semibold text-blue-900 tracking-wide uppercase">Track Record, Methodik & Qualifikationsprofil</span>
+            <span class="text-[10px] font-semibold text-blue-900 tracking-wide uppercase">Fortlaufender Track Record, Methodik & Qualifikation</span>
           </div>
           <div class="text-[9.5px] font-semibold text-slate-500">
             Seite 2 von 2
           </div>
         </header>
 
-        <!-- TOP-HIGHLIGHT: AKTUELLES INNOVATIONS- & KI-MANDAT (september Strategie & Forschung) -->
-        <section aria-labelledby="current-flagship-title" class="border-2 border-blue-900/30 bg-gradient-to-r from-blue-50/70 via-slate-50 to-white rounded-md p-3 relative shadow-sm">
-          <div class="flex justify-between items-start mb-1.5">
-            <div>
-              <div class="flex items-center gap-2">
-                <h2 id="current-flagship-title" class="text-[12.5px] font-extrabold text-slate-900 tracking-tight">
-                  september Strategie & Forschung GmbH (Köln)
-                </h2>
-                <span class="bg-blue-900 text-white font-bold text-[8.5px] uppercase tracking-wider px-2 py-0.5 rounded">
-                  Leuchtturm-Mandat (2022–2025/heute)
-                </span>
-              </div>
-              <p class="text-[11px] font-semibold text-blue-900 mt-0.5">
-                Digital Transformation Architect & Product Owner · später General Manager „Emotion Engine“
-              </p>
-            </div>
-            <div class="flex flex-wrap gap-1 text-[8.5px] font-medium text-slate-600">
-              <span class="bg-white border border-slate-200 px-1.5 py-0.5 rounded">KI & Machine Learning</span>
-              <span class="bg-white border border-slate-200 px-1.5 py-0.5 rounded">Business Unit Lead</span>
-            </div>
-          </div>
-
-          <div class="text-[10.5px] text-slate-700 space-y-1 mt-2">
-            <div class="flex items-start gap-1.5">
-              <span class="text-blue-900 font-bold shrink-0">■</span>
-              <p class="leading-snug"><strong class="text-slate-900 font-semibold">Aufbau & Leitung des Geschäftsfelds „Emotion Engine“:</strong> Konzeption und Skalierung einer eigenständigen Business Unit an der Schnittstelle von Marktforschung, KI und digitalen Datenprodukten.</p>
-            </div>
-            <div class="flex items-start gap-1.5">
-              <span class="text-blue-900 font-bold shrink-0">■</span>
-              <p class="leading-snug"><strong class="text-slate-900 font-semibold">Technische & Produktverantwortung:</strong> Aufbau des digitalen Frameworks, Modelltraining und Überführung tiefenpsychologischer Werbewirkungsanalysen in skalierbare KI-gestützte Kundenprodukte.</p>
-            </div>
-            <div class="flex items-start gap-1.5">
-              <span class="text-blue-900 font-bold shrink-0">■</span>
-              <p class="leading-snug"><strong class="text-slate-900 font-semibold">Brücke Tech & Commercial Excellence:</strong> Kombination aus tiefgreifender Data-Science-Implementierung, agiler Product Ownership und kommerzieller Führung einer dynamisch wachsenden Geschäftseinheit.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Fortlaufender Track Record & Mandate -->
-        <section aria-labelledby="track-record-title" class="space-y-2">
-          <h2 id="track-record-title" class="text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-slate-900 rounded-full"></span>
-            Fortlaufender Track Record & Advisory-Mandate
+        <!-- FORTLAUFENDER TRACK RECORD -->
+        <section aria-labelledby="track-record-title" class="space-y-1.5">
+          <h2 id="track-record-title" class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-1">
+            <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
+            Fortlaufender Track Record
           </h2>
 
-          <div class="space-y-2">
-            <!-- Strategiepilot -->
+          <div class="space-y-1.5">
+            
+            <!-- Burger King -->
             <article class="border border-slate-200 rounded p-2.5 bg-white">
               <div class="flex justify-between items-baseline mb-0.5">
-                <span class="font-bold text-slate-900 text-[11px]">STRATEGIEPILOT (Donauwörth)</span>
-                <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded">2011–heute</span>
+                <div>
+                  <span class="font-bold text-slate-900 text-[11px]">BURGER KING CORPORATION (Miami/FL, U.S.A.)</span>
+                  <span class="text-slate-500 text-[9.5px] ml-1.5">| SVP Global Brand & CMO North America</span>
+                </div>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">8 Mrd. $+ P&L | 300 Mio. $+ Budget</span>
               </div>
-              <p class="text-[10px] font-semibold text-slate-700">Management Advisor | Data Science & KI-driven Business Development</p>
-              <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">
-                Projekt- und Interimsmandate mit Fokus auf Markenartikler, FMCG, Entertainment & Lifestyle. Entwicklung datenbasierter Erlösmodelle, Neupositionierung von Kernmarken und Begleitung von M&A-/Restrukturierungsprozessen.
+              <p class="text-[10px] text-slate-600 leading-snug">
+                Strategische Neuausrichtung in USA, Kanada & DACH. Radikaler Umbau der Preispromotions zu ertragsstarken Value-Plattformen („King des Monats“); Einführung von Kerninnovationen und globalen Markenprozessen; nachhaltiger EBITDA- und Cash-Flow-Turn-Around nach mehr als 3 Jahren Verlusten; spürbare Frequenzsteigerung in >7.000 Filialen.
+              </p>
+            </article>
+
+            <!-- Fitness First -->
+            <article class="border border-slate-200 rounded p-2.5 bg-white">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <div>
+                  <span class="font-bold text-slate-900 text-[11px]">FITNESS FIRST GERMANY GMBH (Frankfurt am Main)</span>
+                  <span class="text-slate-500 text-[9.5px] ml-1.5">| CMO / Mitglied der Geschäftsleitung</span>
+                </div>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">150 Mio. €+ Umsatz | 5 Mio. €+ Budget</span>
+              </div>
+              <p class="text-[10px] text-slate-600 leading-snug">
+                Ganzheitlicher Marken-Relaunch und radikaler Umbau der Akquisitionskanäle auf digitale Performance-Systeme (Web, App, SEO/SEM, Automated Lead Funnel). Über 20% Steigerung von Leads und Neuverträgen (300k+ Leads p.a.) bei gleichzeitiger Absenkung der Customer Acquisition Costs (CAC).
+              </p>
+            </article>
+
+            <!-- Strategiepilot -->
+            <article class="border border-slate-200 rounded p-2 bg-white">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <span class="font-bold text-slate-900 text-[10.5px]">STRATEGIEPILOT (Donauwörth) <span class="text-slate-500 font-normal">| Management Advisor</span></span>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">2011–heute</span>
+              </div>
+              <p class="text-[9.5px] text-slate-600 leading-snug">
+                Interims- und Beratungsmandate mit Fokus auf FMCG, Markenartikler und technologiegetriebene Geschäftsmodelle. Konzeption von KI-gestützten Wachstumsmodellen, Neupositionierungen und M&A-/Restrukturierungsbegleitung.
               </p>
             </article>
 
             <!-- Bavaria Consulting -->
-            <article class="border border-slate-200 rounded p-2.5 bg-white">
+            <article class="border border-slate-200 rounded p-2 bg-white">
               <div class="flex justify-between items-baseline mb-0.5">
-                <span class="font-bold text-slate-900 text-[11px]">BAVARIA CONSULTING GMBH (München)</span>
-                <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded">2016–heute</span>
+                <span class="font-bold text-slate-900 text-[10.5px]">BAVARIA CONSULTING GMBH (München) <span class="text-slate-500 font-normal">| Partner</span></span>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">2016–heute</span>
               </div>
-              <p class="text-[10px] font-semibold text-slate-700">Partner | Strategieberatung Handel, Food & Near-Food</p>
-              <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">
-                Strategieberatung für Lebensmittelindustrie, Handelskonzerne und Fast-Moving-Consumer-Goods. Optimierung von Category Management, Pricing-Strategien und Vertriebsarchitekturen.
+              <p class="text-[9.5px] text-slate-600 leading-snug">
+                Strategieberatung Handel, Food & Near-Food. Portfoliobereinigung, Optimierung von Category-Management- und Vertriebsstrukturen sowie Restrukturierung von Konditionsmodellen im filialisierten Handel.
               </p>
             </article>
 
             <!-- Legoland -->
-            <article class="border border-slate-200 rounded p-2.5 bg-white">
+            <article class="border border-slate-200 rounded p-2 bg-white">
               <div class="flex justify-between items-baseline mb-0.5">
-                <span class="font-bold text-slate-900 text-[11px]">LEGOLAND DEUTSCHLAND RESORT / MERLIN ENTERTAINMENTS (Günzburg)</span>
-                <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded">2008–2009</span>
+                <span class="font-bold text-slate-900 text-[10.5px]">LEGOLAND DEUTSCHLAND RESORT / MERLIN (Günzburg) <span class="text-slate-500 font-normal">| Director Marketing & Sales</span></span>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">2008–2009</span>
               </div>
-              <p class="text-[10px] font-semibold text-slate-700">Director Marketing & Sales (GL-Berichtsweg | 18 Directs | P&L: 50 Mio. €+)</p>
-              <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">
-                <strong>EBITDA-Turn-Around:</strong> Reorganisation des Sales- & Marketing-Teams; weltweite Eröffnung des ersten LEGOLAND Holiday Villages (Hotel- & Übernachtungsresort); massiver Ausbau der Online-Direktvertriebskanäle führte zu Rekord-Ticketverkäufen, historischer Gästeanzahl und Voll-Auslastung.
+              <p class="text-[9.5px] text-slate-600 leading-snug">
+                EBITDA-Turn-Around (50 Mio. €+ P&L, 18 Directs). Eröffnung des weltweit ersten LEGOLAND Holiday Villages; intensiver Ausbau der Online-Direktvertriebskanäle; Rekord-Besucherzahlen und Voll-Auslastung im Übernachtungsresort.
               </p>
             </article>
 
             <!-- McDonald's -->
-            <article class="border border-slate-200 rounded p-2.5 bg-white">
+            <article class="border border-slate-200 rounded p-2 bg-white">
               <div class="flex justify-between items-baseline mb-0.5">
-                <span class="font-bold text-slate-900 text-[11px]">MCDONALD’S DEUTSCHLAND INC. (München)</span>
-                <span class="text-[9.5px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded">2003–2008</span>
+                <span class="font-bold text-slate-900 text-[10.5px]">MCDONALD’S DEUTSCHLAND INC. (München) <span class="text-slate-500 font-normal">| Department Head Marketing</span></span>
+                <span class="text-[9px] font-semibold text-slate-600 bg-slate-100 px-1.5 py-0.2 rounded border border-slate-200">2003–2008</span>
               </div>
-              <p class="text-[10px] font-semibold text-slate-700">Department Head Marketing | Member EMEA Family Board (>40 Länder)</p>
-              <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">
-                Umsatzverantwortung >600 Mio. €; Kernteam der globalen Marken-Neuausrichtung <em>„I’m lovin’ it“</em>; massiver Turn-Around des deutschen Gästeaufkommens 2004–2008. Ausgezeichnet mit dem <em>Global Best Marketing Excellence Award</em>.
+              <p class="text-[9.5px] text-slate-600 leading-snug">
+                Verantwortung >600 Mio. € Umsatz; Mitglied EMEA Family Marketing Board (>40 Länder); Kernteam der globalen „I’m lovin’ it“-Positionierung; starker Turn-Around der Gästezahlen; ausgezeichnet mit dem <em>Global Best Marketing Excellence Award</em>.
               </p>
             </article>
           </div>
 
           <!-- Frühere Stationen Strip -->
-          <div class="bg-slate-50 border border-slate-200 rounded p-2 text-[9.5px] text-slate-600 flex flex-wrap justify-between items-center gap-2">
+          <div class="bg-slate-50 border border-slate-200 rounded px-2.5 py-1.5 text-[9.5px] text-slate-600 flex flex-wrap justify-between items-center gap-2">
             <div>
               <span class="font-bold text-slate-800">Frühere Stationen:</span>
-              <span class="ml-1"><strong>Danone GmbH</strong> (2000–2002: Brand Manager Dany Sahne & FruchtZwerge – Relaunch & zweistelliges Wachstum)</span>
-              <span class="mx-1 text-slate-400">·</span>
-              <span><strong>Esprit Consulting AG</strong> (1997–2000: Management Consultant – SAP-Einführungen, Controlling, Kostenrechnung & P&L-Reporting)</span>
+              <span class="ml-1"><strong>Danone GmbH</strong> (Brand Manager Dany Sahne & FruchtZwerge – Relaunch & zweistelliges Wachstum)</span>
+              <span class="mx-1.5 text-slate-300">·</span>
+              <span><strong>Esprit Consulting AG</strong> (Management Consultant SAP / Controlling & P&L-Reporting)</span>
             </div>
           </div>
         </section>
 
-        <!-- Methodik & Fachliche Schwerpunkte (3 Kacheln) -->
+        <!-- METHODIK & FACHLICHE KERNKOMPETENZEN (3 Kacheln mit genauer Wunsch-Reihenfolge) -->
         <section aria-labelledby="methodology-title">
-          <h2 id="methodology-title" class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 bg-blue-800 rounded-full"></span>
+          <h2 id="methodology-title" class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
             Methodik & Fachliche Kernkompetenzen
           </h2>
           <div class="grid grid-cols-3 gap-2.5">
-            <div class="bg-white border border-slate-200 rounded p-2.5">
-              <span class="block text-[10.5px] font-bold text-slate-900 uppercase">Turn-Around & Sanierung</span>
-              <p class="text-[9.5px] text-slate-600 mt-1 leading-snug">
-                Ganzheitliche P&L-Restrukturierung, Working-Capital-Optimierung, Portfolio-Bereinigung, Value-for-Money-Pricing, Sanierung unrentabler Rabattsysteme.
-              </p>
-            </div>
-
-            <div class="bg-white border border-slate-200 rounded p-2.5">
-              <span class="block text-[10.5px] font-bold text-slate-900 uppercase">Data Science & Generative KI</span>
-              <p class="text-[9.5px] text-slate-600 mt-1 leading-snug">
-                Predictive Analytics, Machine-Learning-Algorithmen, LLM-/NLP-Automatisierung in Geschäftsprozessen, KI-basierte Kunden- & Marktanalyse.
-              </p>
-            </div>
-
-            <div class="bg-white border border-slate-200 rounded p-2.5">
+            
+            <!-- Kachel 1 (Links): Leadership & Transformation -->
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
               <span class="block text-[10.5px] font-bold text-slate-900 uppercase">Leadership & Transformation</span>
               <p class="text-[9.5px] text-slate-600 mt-1 leading-snug">
-                Führung heterogener Organisationen (bis 18+ Directs), weltweite Agentursteuerung, Multi-Stakeholder-Alignment in Matrix-, Familien- & PE-Strukturen.
+                Führung großer interdisziplinärer Teams (bis 18+ Directs, Tech- & Commercial-Units), Steuerung globaler Agenturpools, Multi-Stakeholder-Alignment in Matrix-, Familien- & PE-Strukturen.
+              </p>
+            </div>
+
+            <!-- Kachel 2 (Mitte): Profitable Growth Strategy -->
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
+              <span class="block text-[10.5px] font-bold text-slate-900 uppercase">Profitable Growth Strategy</span>
+              <p class="text-[9.5px] text-slate-600 mt-1 leading-snug">
+                Ganzheitliche P&L-Optimierung, Sanierung unrentabler Promotions, datenbasierte Pricing- und Value-Plattformen, Skalierung digitaler Akquisitionskanäle zur Senkung der CAC und Steigerung des CLV.
+              </p>
+            </div>
+
+            <!-- Kachel 3 (Rechts): Data Science & Generative AI -->
+            <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
+              <span class="block text-[10.5px] font-bold text-slate-900 uppercase">Data Science & Generative AI</span>
+              <p class="text-[9.5px] text-slate-600 mt-1 leading-snug">
+                Überführung von GenAI, LLMs und agentischen Systemen in Core-Business-Workflows; Predictive Analytics & Forecasting; Sicherstellung von Data & AI Governance (EU AI Act, Data Security).
               </p>
             </div>
           </div>
         </section>
 
-        <!-- Ausbildung & Tech Stack (2 Spalten) -->
-        <section aria-labelledby="qualification-title" class="border border-slate-200 rounded p-2.5 bg-white">
+        <!-- AUSBILDUNG & TECH STACK (2 Spalten mit den exakten 8 Wunsch-Tags) -->
+        <section aria-labelledby="qualification-title" class="border border-slate-200 rounded p-2.5 bg-white shadow-sm">
           <h2 id="qualification-title" class="sr-only">Ausbildung und Technologie-Stack</h2>
           <div class="grid grid-cols-2 gap-4">
             
             <!-- Linke Spalte: Akademischer Hintergrund & Sprachen -->
             <div>
-              <h3 class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Akademischer Hintergrund & Sprachen</h3>
+              <h3 class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
+                Akademischer Hintergrund & Sprachen
+              </h3>
               <div class="space-y-1 text-[10px]">
                 <div>
                   <span class="font-bold text-slate-900">M.Sc. Data Science</span>
-                  <span class="text-slate-600"> – Hochschule Albstadt-Sigmaringen (Prädikatsexamen)</span>
+                  <span class="text-slate-600"> – Hochschule Albstadt-Sigmaringen (Prädikat)</span>
                 </div>
                 <div>
                   <span class="font-bold text-slate-900">Dipl.-Kaufmann Univ.</span>
-                  <span class="text-slate-600"> – LMU München (Prädikat in Führung, Marketing & Psychologie)</span>
+                  <span class="text-slate-600"> – LMU München (Prädikat: Führung, Marketing & Psychologie)</span>
                 </div>
                 <div class="pt-0.5 text-[9.5px] text-slate-600">
                   <span class="font-bold text-slate-800">Sprachen:</span> Deutsch (Muttersprache), Englisch (Verhandlungssicher / C2), Französisch (Grundkenntnisse)
@@ -584,19 +532,21 @@
               </div>
             </div>
 
-            <!-- Rechte Spalte: Tech & Tool Stack -->
+            <!-- Rechte Spalte: Die 8 geforderten Data Science & AI Tags -->
             <div>
-              <h3 class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Data Science, KI & Tech Stack</h3>
+              <h3 class="text-[9.5px] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-blue-900 rounded-full"></span>
+                Data Science, KI & Tech Stack
+              </h3>
               <div class="flex flex-wrap gap-1">
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Python</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Machine Learning</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">TensorFlow</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">SQL & R</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Pandas / NumPy</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">NLP & LLMs</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Scikit-Learn</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Predictive Analytics</span>
-                <span class="bg-slate-100 text-slate-800 text-[9.5px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Cloud Architekturen</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">GenAI & LLM-Architekturen</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">RAG & Agentic AI</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Machine Learning & MLOps</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Python & PyTorch</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Cloud AI (AWS / Azure / GCP)</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Predictive Analytics & Forecasting</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">Data & AI Governance (z. B. EU AI Act, Data Security)</span>
+                <span class="bg-slate-100 text-slate-800 text-[9px] font-medium px-1.5 py-0.5 rounded border border-slate-200">SQL, R & Modern Data Stack</span>
               </div>
             </div>
 

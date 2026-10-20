@@ -100,17 +100,30 @@
 
   <!-- Floating Action Bar (Web only) -->
   <aside aria-label="Aktionen" class="print-hidden fixed top-5 right-5 z-50 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-lg border border-slate-200">
-    <div class="flex items-center gap-3 pr-3 border-r border-slate-200">
+    <!-- Language Toggle Switch (DE / EN) -->
+    <div class="flex items-center gap-2 pr-3 border-r border-slate-200 select-none">
+      <span id="label-lang-de" class="text-xs font-bold text-blue-900 cursor-pointer transition-colors" onclick="setLanguage('de')">DE</span>
+      <label class="relative inline-flex items-center cursor-pointer" title="Sprache wechseln / Switch language">
+        <input type="checkbox" id="toggleLang" class="sr-only peer" onchange="setLanguage(this.checked ? 'en' : 'de')">
+        <div class="w-8 h-[18px] bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:bg-blue-900 transition-colors after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:after:translate-x-3.5 peer-checked:after:border-white"></div>
+      </label>
+      <span id="label-lang-en" class="text-xs font-semibold text-slate-400 cursor-pointer transition-colors hover:text-slate-600" onclick="setLanguage('en')">EN</span>
+    </div>
+
+    <!-- Photo Visibility Toggle -->
+    <div class="flex items-center gap-3 pr-3 border-r border-slate-200 select-none">
       <label class="text-xs font-medium text-slate-600 flex items-center gap-1.5 cursor-pointer">
         <input type="checkbox" id="togglePhoto" checked class="rounded text-blue-900 focus:ring-blue-800 h-3.5 w-3.5" onchange="document.body.classList.toggle('no-photo', !this.checked)">
-        <span>Foto</span>
+        <span data-i18n="photoLabel">Foto</span>
       </label>
     </div>
+
+    <!-- Print / Export Button -->
     <button onclick="window.print()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs px-4 py-1.5 rounded-full transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-1">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
       </svg>
-      <span>PDF drucken / speichern</span>
+      <span data-i18n="printBtn">PDF drucken / speichern</span>
     </button>
   </aside>
 
@@ -140,12 +153,12 @@
                 <h1 class="text-xl font-bold tracking-tight text-slate-900 uppercase">Andreas Barth</h1>
                 
                 <!-- Leitposition: Vollständig sichtbar, kein Abschneiden -->
-                <p class="text-[11pt] font-semibold text-blue-900 tracking-tight mt-0.5 leading-snug">
+                <p data-i18n="leadRole" class="text-[11pt] font-semibold text-blue-900 tracking-tight mt-0.5 leading-snug">
                   Interim Executive für profitables Wachstum und KI-Transformation
                 </p>
                 
                 <!-- Belegbare Zielrollen -->
-                <p class="text-[9pt] font-medium text-slate-600 mt-0.5">
+                <p data-i18n="targetRoles" class="text-[9pt] font-medium text-slate-600 mt-0.5">
                   Zielrollen: Interim CMO/CDO · Geschäftsleitung · Transformationsleitung
                 </p>
               </div>
@@ -153,7 +166,7 @@
 
             <!-- Dezente Profilkennung -->
             <div class="text-right shrink-0">
-              <span class="inline-block bg-slate-900 text-white font-semibold text-[8.5pt] uppercase tracking-wider px-2 py-0.5 rounded">
+              <span data-i18n="profileBadge" class="inline-block bg-slate-900 text-white font-semibold text-[8.5pt] uppercase tracking-wider px-2 py-0.5 rounded">
                 Executive Profil
               </span>
               <p id="print-date" class="text-[8.5pt] text-slate-500 mt-1">Stand: 01. Okt. 2026</p>
@@ -165,7 +178,7 @@
             <div class="flex flex-wrap items-center gap-x-4">
               <span class="flex items-center gap-1.5 text-slate-800 font-medium">
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Donauwörth
+                <span>Donauwörth</span>
               </span>
               <a href="mailto:barth@strategiepilot.de" class="flex items-center gap-1.5 hover:text-blue-900 transition-colors">
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -177,15 +190,15 @@
               </a>
             </div>
             <div class="flex items-center gap-1.5 font-medium text-slate-700">
-              <span>Einsatz: DACH & international (vor Ort & remote) · Verfügbarkeit: ab November 2026</span>
+              <span data-i18n="contactDeployment">Einsatz: DACH & international (vor Ort & remote) · Verfügbarkeit: ab November 2026</span>
             </div>
           </div>
         </header>
 
         <!-- 2. Executive Summary (prägnant, ohne Floskeln) -->
         <section aria-labelledby="exec-summary-title" class="bg-slate-50 border border-slate-200 rounded p-2.5">
-          <h2 id="exec-summary-title" class="text-[8.5pt] font-bold uppercase tracking-wider text-slate-500 mb-1">Executive Summary</h2>
-          <p class="text-[9.5pt] leading-relaxed text-slate-700">
+          <h2 id="exec-summary-title" data-i18n="execSummaryTitle" class="text-[8.5pt] font-bold uppercase tracking-wider text-slate-500 mb-1">Executive Summary</h2>
+          <p data-i18n="execSummaryText" class="text-[9.5pt] leading-relaxed text-slate-700">
             Verbindet über 20 Jahre kommerzielle Führungserfahrung mit fundierter Data-Science-Qualifikation (M.Sc.) und praktischer Erfahrung in der Entwicklung von KI-Produkten. Übersetzt unternehmerische Herausforderungen in datengetriebene Entscheidungen und konkrete KI-Anwendungen – mit Fokus auf profitables Wachstum, operative Effizienz und Cashflow. Führungserfahrung mit P&amp;L- und Marketingverantwortung in Konsumgüter- und Filialunternehmen (FMCG, Gastronomie, Retail, Leisure), unter anderem als Chief Marketing Officer bei Burger King North America und Fitness First Germany. Erprobt in der Übernahme interimistischer C-Level-Verantwortung und im ertragsorientierten Turnaround stagnierender Geschäftsmodelle. Verbindet strategische Steuerung mit eigener technischer Umsetzungskompetenz.
           </p>
         </section>
@@ -197,27 +210,27 @@
             
             <!-- Kennzahl 1: Burger King North America -->
             <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-bold text-blue-900 tracking-tight">8 Mrd. $+</span>
-              <span class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Systemumsatz & P&L</span>
-              <span class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
+              <span data-i18n="kpi1Value" class="block text-xl font-bold text-blue-900 tracking-tight">8 Mrd. $+</span>
+              <span data-i18n="kpi1Title" class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Systemumsatz & P&L</span>
+              <span data-i18n="kpi1Desc" class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
                 <strong>Burger King North America</strong> (SVP & CMO): P&L-Turnaround & Frequenzsteigerung in >7.000 Filialen
               </span>
             </div>
 
             <!-- Kennzahl 2: Burger King North America Budget -->
             <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-bold text-blue-900 tracking-tight">300 Mio. $+</span>
-              <span class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Marketingbudget</span>
-              <span class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
+              <span data-i18n="kpi2Value" class="block text-xl font-bold text-blue-900 tracking-tight">300 Mio. $+</span>
+              <span data-i18n="kpi2Title" class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Marketingbudget</span>
+              <span data-i18n="kpi2Desc" class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
                 <strong>Burger King North America</strong> (SVP & CMO): Neuausrichtung der Marken-, Preis- und Promotionstrategie
               </span>
             </div>
 
             <!-- Kennzahl 3: Fitness First Germany -->
             <div class="bg-white border border-slate-200 rounded p-2.5 shadow-sm">
-              <span class="block text-xl font-bold text-blue-900 tracking-tight">&gt;20 %</span>
-              <span class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Neuvertragszuwachs</span>
-              <span class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
+              <span data-i18n="kpi3Value" class="block text-xl font-bold text-blue-900 tracking-tight">&gt;20 %</span>
+              <span data-i18n="kpi3Title" class="block text-[8.5pt] font-semibold text-slate-800 mt-0.5 uppercase tracking-wide">Neuvertragszuwachs</span>
+              <span data-i18n="kpi3Desc" class="block text-[8.5pt] text-slate-600 mt-0.5 leading-snug">
                 <strong>Fitness First Germany</strong> (CMO / GL): 300.000+ qualifizierte Leads p.a. via digitaler Performance-Kanäle
               </span>
             </div>
@@ -225,7 +238,7 @@
           </div>
         </section>
 
-        <!-- Ausgewählte Stationen & Marken (Hellgraues Panel, 30% größere Logos & Bezeichner im KPI-Blau) -->
+        <!-- Ausgewählte Stationen & Marken (Hellgraues Panel, Logos & Bezeichner im KPI-Blau) -->
         <section aria-label="Kernmarken und Stationen" class="bg-slate-100 border border-slate-200/90 rounded-md py-2 px-6 shadow-xs">
           <div class="flex items-center justify-between gap-3">
             <!-- McDonald's -->
@@ -260,33 +273,33 @@
         <!-- 4. Zwei kompakte Erfolgsfälle: KI-Transformation & Kommerzielles Wachstum -->
         <section aria-labelledby="cases-title" class="space-y-2">
           <div class="border-b border-slate-200 pb-0.5 flex justify-between items-baseline">
-            <h2 id="cases-title" class="text-[9pt] font-bold uppercase tracking-wider text-slate-900">
+            <h2 id="cases-title" data-i18n="casesTitle" class="text-[9pt] font-bold uppercase tracking-wider text-slate-900">
               Ausgewählte Erfolgsfälle
             </h2>
-            <span class="text-[8.5pt] text-slate-500 font-medium">Ausgangslage · Eigener Beitrag · Ergebnis</span>
+            <span data-i18n="casesSubtitle" class="text-[8.5pt] text-slate-500 font-medium">Ausgangslage · Eigener Beitrag · Ergebnis</span>
           </div>
 
           <!-- Fall 1: september Strategie & Forschung (KI-Transformation) -->
           <article class="border border-slate-200 rounded p-2.5 bg-white shadow-sm space-y-1">
             <div class="flex justify-between items-baseline">
               <div>
-                <h3 class="font-bold text-slate-900 text-[9.5pt]">
+                <h3 data-i18n="case1Title" class="font-bold text-slate-900 text-[9.5pt]">
                   september Strategie & Forschung GmbH (Köln) · Digital Transformation Architect u. General Manager
                 </h3>
-                <p class="text-[8.5pt] text-blue-900 font-semibold">
+                <p data-i18n="case1Badge" class="text-[8.5pt] text-blue-900 font-semibold">
                   KI-Transformation & Plattform-Skalierung (Interim- / Transformationsmandat · 04/2021–12/2025)
                 </p>
               </div>
             </div>
             
             <div class="space-y-0.5 text-[9pt] text-slate-700 leading-snug">
-              <p>
+              <p data-i18n="case1P1">
                 <strong class="text-slate-900 font-semibold">Ausgangslage:</strong> Analoge, zeitintensive Werbewirkungsforschung sollte in ein skalierbares, standardisiertes Datenprodukt überführt werden.
               </p>
-              <p>
+              <p data-i18n="case1P2">
                 <strong class="text-slate-900 font-semibold">Eigener Beitrag:</strong> Konzeption und Product Ownership der proprietären Plattform „Emotion Engine“; Steuerung von Modelltraining und digitalem Framework; anschließende gemeinsame Leitung der neuen Business Unit als General Manager.
               </p>
-              <p>
+              <p data-i18n="case1P3">
                 <strong class="text-slate-900 font-semibold">Ergebnis:</strong> Marktreife digitale KI-Analyseprodukte für Markenartikler und Agenturen; Etablierung als eine von drei eigenständigen Business Units des Unternehmens.
               </p>
             </div>
@@ -296,23 +309,23 @@
           <article class="border border-slate-200 rounded p-2.5 bg-white shadow-sm space-y-1">
             <div class="flex justify-between items-baseline">
               <div>
-                <h3 class="font-bold text-slate-900 text-[9.5pt]">
+                <h3 data-i18n="case2Title" class="font-bold text-slate-900 text-[9.5pt]">
                   Burger King Corporation (Miami, USA) · Senior Vice President Global Brand & CMO North America
                 </h3>
-                <p class="text-[8.5pt] text-blue-900 font-semibold">
+                <p data-i18n="case2Badge" class="text-[8.5pt] text-blue-900 font-semibold">
                   Kommerzielles Wachstum & Turnaround (Festanstellung / Executive Management · 2010–2011)
                 </p>
               </div>
             </div>
             
             <div class="space-y-0.5 text-[9pt] text-slate-700 leading-snug">
-              <p>
+              <p data-i18n="case2P1">
                 <strong class="text-slate-900 font-semibold">Ausgangslage:</strong> Über drei Jahre anhaltender Gästeschwund und Margenerosion durch unrentable Preispromotions in über 7.000 Restaurants in Nordamerika.
               </p>
-              <p>
+              <p data-i18n="case2P2">
                 <strong class="text-slate-900 font-semibold">Eigener Beitrag:</strong> Strategische Neuausrichtung des Marken- und Produktportfolios; radikaler Umbau der Preispromotions auf ertragsstarke Plattformen („King des Monats“); Etablierung einheitlicher Marketingprozesse in den Kernmärkten.
               </p>
-              <p>
+              <p data-i18n="case2P3">
                 <strong class="text-slate-900 font-semibold">Ergebnis:</strong> Nachhaltiger Turnaround des operativen Ergebnisses (Restaurant Operating Profit) und Cashflows; Trendumkehr mit messbarem Gästewachstum und Frequenzsteigerung.
               </p>
             </div>
@@ -320,11 +333,11 @@
 
         </section>
 
-        <!-- 5. Branchenschwerpunkte (30% größere Icons im KPI-Blau & Tetrapak-Icon) -->
+        <!-- 5. Branchenschwerpunkte (Icons im KPI-Blau) -->
         <section aria-labelledby="industry-title" class="border border-slate-200 rounded-md p-2 bg-slate-50/70">
           <h2 id="industry-title" class="text-[8pt] font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center justify-between">
-            <span>Branchenschwerpunkte & Sektor-Expertise</span>
-            <span class="text-[7.5pt] font-normal text-slate-500">Multimarkt- & B2C-/B2B-Erfahrung</span>
+            <span data-i18n="industryTitle">Branchenschwerpunkte & Sektor-Expertise</span>
+            <span data-i18n="industrySubtitle" class="text-[7.5pt] font-normal text-slate-500">Multimarkt- & B2C-/B2B-Erfahrung</span>
           </h2>
           <div class="grid grid-cols-5 gap-1.5">
             
@@ -341,8 +354,8 @@
                 </svg>
               </div>
               <div class="min-w-0 flex-1 text-left">
-                <div class="font-bold text-[7.5pt] text-slate-900 leading-tight">FMCG &<br>Konsumgüter</div>
-                <div class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Food, CPG, Marken</div>
+                <div data-i18n="ind1Title" class="font-bold text-[7.5pt] text-slate-900 leading-tight">FMCG &<br>Konsumgüter</div>
+                <div data-i18n="ind1Sub" class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Food, CPG, Marken</div>
               </div>
             </div>
 
@@ -358,8 +371,8 @@
                 </svg>
               </div>
               <div class="min-w-0 flex-1 text-left">
-                <div class="font-bold text-[7.5pt] text-slate-900 leading-tight">System-<br>gastronomie</div>
-                <div class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Filial- & Multi-Stores</div>
+                <div data-i18n="ind2Title" class="font-bold text-[7.5pt] text-slate-900 leading-tight">System-<br>gastronomie</div>
+                <div data-i18n="ind2Sub" class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Filial- & Multi-Stores</div>
               </div>
             </div>
 
@@ -371,8 +384,8 @@
                 </svg>
               </div>
               <div class="min-w-0 flex-1 text-left">
-                <div class="font-bold text-[7.5pt] text-slate-900 leading-tight">Retail &<br>E-Commerce</div>
-                <div class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Omnichannel & D2C</div>
+                <div data-i18n="ind3Title" class="font-bold text-[7.5pt] text-slate-900 leading-tight">Retail &<br>E-Commerce</div>
+                <div data-i18n="ind3Sub" class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Omnichannel & D2C</div>
               </div>
             </div>
 
@@ -388,8 +401,8 @@
                 </svg>
               </div>
               <div class="min-w-0 flex-1 text-left">
-                <div class="font-bold text-[7.5pt] text-slate-900 leading-tight">Leisure &<br>Lifestyle</div>
-                <div class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Resorts, Clubs, Fitness</div>
+                <div data-i18n="ind4Title" class="font-bold text-[7.5pt] text-slate-900 leading-tight">Leisure &<br>Lifestyle</div>
+                <div data-i18n="ind4Sub" class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Resorts, Clubs, Fitness</div>
               </div>
             </div>
 
@@ -408,8 +421,8 @@
                 </svg>
               </div>
               <div class="min-w-0 flex-1 text-left">
-                <div class="font-bold text-[7.5pt] text-slate-900 leading-tight">Data &<br>KI-Produkte</div>
-                <div class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Analytics, SaaS, Research</div>
+                <div data-i18n="ind5Title" class="font-bold text-[7.5pt] text-slate-900 leading-tight">Data &<br>KI-Produkte</div>
+                <div data-i18n="ind5Sub" class="text-[6.5pt] text-slate-500 mt-0.5 leading-snug">Analytics, SaaS, Research</div>
               </div>
             </div>
 
@@ -420,7 +433,7 @@
 
       <!-- Page 1 Footer (zentrierte Seitenzahl) -->
       <footer class="border-t border-slate-200 pt-1 flex justify-center items-center text-[8pt] text-slate-400 font-medium tracking-wide">
-        <span>Seite 1 von 2</span>
+        <span data-i18n="page1Footer">Seite 1 von 2</span>
       </footer>
 
     </section>
@@ -440,7 +453,7 @@
 
         <!-- 1. Relevante berufliche Stationen (geordnet, mit Verantwortung & Ergebnissen) -->
         <section aria-labelledby="experience-title" class="space-y-1">
-          <h2 id="experience-title" class="text-[9pt] font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-0.5">
+          <h2 id="experience-title" data-i18n="expTitle" class="text-[9pt] font-bold uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-0.5">
             Beruflicher Werdegang & Mandate
           </h2>
 
@@ -451,12 +464,12 @@
               <div class="flex justify-between items-baseline">
                 <div class="flex items-center gap-2">
                   <img src="./assets/logos/logo_strategiepilot_icon.png" alt="STRATEGIEPILOT" class="object-contain opacity-80" style="height: 17px; max-height: 17px; width: auto;">
-                  <span class="font-bold text-slate-900 text-[9pt]">STRATEGIEPILOT (seit 2011) & Bavaria Consulting GmbH (seit 2016)</span>
+                  <span data-i18n="st1Title" class="font-bold text-slate-900 text-[9pt]">STRATEGIEPILOT (seit 2011) & Bavaria Consulting GmbH (seit 2016)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">Beratung & Mandate</span>
+                <span data-i18n="st1Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">Beratung & Mandate</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Management Advisor & Partner</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st1Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Management Advisor & Partner</p>
+              <p data-i18n="st1Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 Mandate für Konsumgüterhersteller, Handel und Finanzdienstleister zu Portfoliosteuerung, Category Management und datengestützten Geschäftsmodellen.<br>
                 <strong>Ausgewählte Projekte:</strong> Pilotierung eines KI-gestützten Dokumentenmanagementsystems bei einer deutschen Automobil-Bank · KI-gestützte Markteintritts- und Positionierungsstrategie für den deutschen Eiscrememarkt eines weltweit führenden Süßwarenherstellers.
               </p>
@@ -469,12 +482,12 @@
                   <svg class="h-[15px] w-auto text-slate-700 shrink-0" viewBox="0 0 20 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M3 2l6 6-6 6M11 2l6 6-6 6"/>
                   </svg>
-                  <span class="font-bold text-slate-900 text-[9pt]">september Strategie & Forschung GmbH (Köln)</span>
+                  <span data-i18n="st2Title" class="font-bold text-slate-900 text-[9pt]">september Strategie & Forschung GmbH (Köln)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">04/2021–12/2025 · Transformationsmandat</span>
+                <span data-i18n="st2Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">04/2021–12/2025 · Transformationsmandat</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Digital Transformation Architect & Product Owner u. General Manager „Emotion Engine“</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st2Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Digital Transformation Architect & Product Owner u. General Manager „Emotion Engine“</p>
+              <p data-i18n="st2Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 <strong>Verantwortung:</strong> Technische und fachliche Gesamtverantwortung für Plattform-Framework, Modelltraining und Überführung in skalierbare Kundenprodukte; Co-Leitung der neuen Business Unit.<br>
                 <strong>Ergebnis:</strong> Erfolgreicher Aufbau der Plattform zu einer von drei Kern-Geschäftseinheiten; Verkürzung der Analysezyklen für Werbewirkungsstudien.
               </p>
@@ -485,12 +498,12 @@
               <div class="flex justify-between items-baseline">
                 <div class="flex items-center gap-2">
                   <img src="./assets/logos/logo_fitnessfirst.png" alt="Fitness First" class="object-contain opacity-75" style="height: 17px; max-height: 17px; width: auto;">
-                  <span class="font-bold text-slate-900 text-[9pt]">Fitness First Germany GmbH (Frankfurt am Main)</span>
+                  <span data-i18n="st3Title" class="font-bold text-slate-900 text-[9pt]">Fitness First Germany GmbH (Frankfurt am Main)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">10/2013–10/2015 · Festanstellung</span>
+                <span data-i18n="st3Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">10/2013–10/2015 · Festanstellung</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Chief Marketing Officer | Mitglied der Geschäftsleitung</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st3Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Chief Marketing Officer | Mitglied der Geschäftsleitung</p>
+              <p data-i18n="st3Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 <strong>Verantwortung:</strong> 150 Mio. €+ Unternehmensumsatz, 5 Mio. €+ Marketingbudget; Führung von Marketing, PR und digitalem Lead-Management; Berichtsweg an Managing Director.<br>
                 <strong>Ergebnis:</strong> Ganzheitlicher Marken-Relaunch; Umbau der Akquisitionskanäle auf digitale Performance-Systeme (Web, App, SEO/SEM); Senkung der CAC bei >20 % mehr Leads und Neuverträgen (300k+ Leads p.a.).
               </p>
@@ -501,12 +514,12 @@
               <div class="flex justify-between items-baseline">
                 <div class="flex items-center gap-2">
                   <img src="./assets/logos/logo_burgerking.png" alt="Burger King" class="object-contain opacity-75" style="height: 18px; max-height: 18px; width: auto;">
-                  <span class="font-bold text-slate-900 text-[9pt]">Burger King Corporation (Miami, USA & München, DACH)</span>
+                  <span data-i18n="st4Title" class="font-bold text-slate-900 text-[9pt]">Burger King Corporation (Miami, USA & München, DACH)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">2009–2011 · Festanstellung</span>
+                <span data-i18n="st4Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">2009–2011 · Festanstellung</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Senior Vice President Global Brand & CMO North America (zuvor VP Marketing US & Director Marketing Central Europe)</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st4Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Senior Vice President Global Brand & CMO North America (zuvor VP Marketing US & Director Marketing Central Europe)</p>
+              <p data-i18n="st4Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 <strong>Verantwortung:</strong> 8 Mrd. $+ Systemumsatz, 300 Mio. $+ Marketingbudget, >7.000 Restaurants; Berichtsweg an President BK North America / COO EMEA.<br>
                 <strong>Ergebnis:</strong> Operativer Turnaround nach mehr als 3 Jahren Verlusten; Etablierung margenstarker Preis-Promotion-Plattformen („King des Monats“); weltweite Marketingprozesse in den Top-10-Märkten.
               </p>
@@ -517,12 +530,12 @@
               <div class="flex justify-between items-baseline">
                 <div class="flex items-center gap-2">
                   <img src="./assets/logos/logo_legoland.png" alt="LEGOLAND" class="object-contain opacity-80" style="height: 15px; max-height: 15px; width: auto;">
-                  <span class="font-bold text-slate-900 text-[9pt]">LEGOLAND Deutschland Resort / Merlin Entertainments (Günzburg)</span>
+                  <span data-i18n="st5Title" class="font-bold text-slate-900 text-[9pt]">LEGOLAND Deutschland Resort / Merlin Entertainments (Günzburg)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">05/2008–10/2009 · Festanstellung</span>
+                <span data-i18n="st5Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">05/2008–10/2009 · Festanstellung</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Director Marketing & Sales</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st5Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Director Marketing & Sales</p>
+              <p data-i18n="st5Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 <strong>Verantwortung:</strong> 50 Mio. €+ P&L, disziplinarische Führung von 18 Mitarbeiter:innen; Berichtsweg an General Manager.<br>
                 <strong>Ergebnis:</strong> EBITDA-Turnaround durch zweistelliges Top-Line-Wachstum; Eröffnung des ersten weltweiten LEGOLAND Holiday Villages; historische Rekordauslastung im Übernachtungsresort.
               </p>
@@ -533,12 +546,12 @@
               <div class="flex justify-between items-baseline">
                 <div class="flex items-center gap-2">
                   <img src="./assets/logos/logo_mcdonalds.png" alt="McDonald's" class="object-contain opacity-75" style="height: 17px; max-height: 17px; width: auto;">
-                  <span class="font-bold text-slate-900 text-[9pt]">McDonald’s Deutschland Inc. (München)</span>
+                  <span data-i18n="st6Title" class="font-bold text-slate-900 text-[9pt]">McDonald’s Deutschland Inc. (München)</span>
                 </div>
-                <span class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">2003–2008 · Festanstellung</span>
+                <span data-i18n="st6Badge" class="text-[8pt] font-medium text-slate-600 bg-slate-50 px-1.5 py-0.2 rounded border border-slate-200">2003–2008 · Festanstellung</span>
               </div>
-              <p class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Department Head Marketing (zuvor Manager Marketing Kids & Family)</p>
-              <p class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
+              <p data-i18n="st6Role" class="text-[8.5pt] font-semibold text-blue-900 mt-0.5">Department Head Marketing (zuvor Manager Marketing Kids & Family)</p>
+              <p data-i18n="st6Desc" class="text-[8.5pt] text-slate-600 leading-snug mt-0.5">
                 <strong>Verantwortung:</strong> >600 Mio. € Segmentumsatz; Mitglied des EMEA Family Marketing Boards (>40 Länder); Kernteam der weltweiten „I’m lovin’ it“-Positionierung.<br>
                 <strong>Ergebnis:</strong> Signifikanter Zuwachs des Gästeaufkommens 2004–2008; Auszeichnung mit dem „Global Best Marketing Excellence Award“.
               </p>
@@ -548,16 +561,16 @@
 
           <!-- Frühere Stationen (3-zeilig, bündig ausgerichtet) -->
           <div class="bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-[8pt] text-slate-600 space-y-0.5">
-            <div class="font-bold text-[7.5pt] uppercase tracking-wider text-slate-500">
+            <div data-i18n="earlierTitle" class="font-bold text-[7.5pt] uppercase tracking-wider text-slate-500">
               Frühere Stationen & Beratung:
             </div>
             <div class="grid grid-cols-[170px_1fr] items-baseline gap-2">
               <span class="font-bold text-slate-900">Danone GmbH <span class="font-normal text-slate-500">(2000–2002)</span>:</span>
-              <span>Brand Manager Dany Sahne & FruchtZwerge · Zweistelliges Volumenwachstum</span>
+              <span data-i18n="earlierDanone">Brand Manager Dany Sahne & FruchtZwerge · Zweistelliges Volumenwachstum</span>
             </div>
             <div class="grid grid-cols-[170px_1fr] items-baseline gap-2">
               <span class="font-bold text-slate-900">Esprit Consulting <span class="font-normal text-slate-500">(1997–2000)</span>:</span>
-              <span>Management Consultant · SAP-Einführungen, Controlling & P&L-Rechnung</span>
+              <span data-i18n="earlierEsprit">Management Consultant · SAP-Einführungen, Controlling & P&L-Rechnung</span>
             </div>
           </div>
         </section>
@@ -569,40 +582,40 @@
             <!-- Linke Spalte: Ausbildung & Sprachen -->
             <div class="space-y-1">
               <div>
-                <h3 class="text-[8pt] font-bold uppercase tracking-wider text-slate-900 mb-0.5">
+                <h3 id="qualification-title" data-i18n="eduTitle" class="text-[8pt] font-bold uppercase tracking-wider text-slate-900 mb-0.5">
                   Ausbildung & Qualifikation
                 </h3>
                 <div class="space-y-0.5 text-[8pt] text-slate-700">
                   <div>
-                    <span class="font-bold text-slate-900">M.Sc. Data Science</span> (Abschluss 2021)
-                    <div class="text-slate-600 text-[7.5pt]">Hochschule Albstadt-Sigmaringen · Prädikatsexamen</div>
+                    <span data-i18n="eduMscTitle" class="font-bold text-slate-900">M.Sc. Data Science</span> <span data-i18n="eduMscYear" class="text-slate-700 font-semibold">(Abschluss 2021)</span>
+                    <div data-i18n="eduMscSub" class="text-slate-600 text-[7.5pt]">Hochschule Albstadt-Sigmaringen · Prädikatsexamen</div>
                   </div>
                   <div class="pt-0.5">
-                    <span class="font-bold text-slate-900">Dipl.-Kaufmann Univ.</span> (Abschluss 1997)
-                    <div class="text-slate-600 text-[7.5pt]">Ludwig-Maximilians-Universität München · Prädikatsexamen</div>
+                    <span data-i18n="eduDiplTitle" class="font-bold text-slate-900">Dipl.-Kaufmann Univ.</span> <span data-i18n="eduDiplYear" class="text-slate-700 font-semibold">(Abschluss 1997)</span>
+                    <div data-i18n="eduDiplSub" class="text-slate-600 text-[7.5pt]">Ludwig-Maximilians-Universität München · Prädikatsexamen</div>
                   </div>
                 </div>
               </div>
 
               <div class="pt-1 border-t border-slate-100">
-                <span class="font-bold text-slate-900 text-[8pt]">Sprachen:</span>
-                <span class="text-slate-700 text-[7.5pt] ml-1">Deutsch · Englisch (verhandlungssicher) · Französisch & Spanisch (Grundkenntnisse)</span>
+                <span data-i18n="langLabel" class="font-bold text-slate-900 text-[8pt]">Sprachen:</span>
+                <span data-i18n="langText" class="text-slate-700 text-[7.5pt] ml-1">Deutsch · Englisch (verhandlungssicher) · Französisch & Spanisch (Grundkenntnisse)</span>
               </div>
             </div>
 
             <!-- Rechte Spalte: Führungskompetenzen -->
             <div class="space-y-0.5">
-              <h3 class="text-[8pt] font-bold uppercase tracking-wider text-slate-900 mb-0.5">
+              <h3 data-i18n="skillsTitle" class="text-[8pt] font-bold uppercase tracking-wider text-slate-900 mb-0.5">
                 Ausgewählte Führungskompetenzen
               </h3>
               <div class="space-y-0.5 text-[7.5pt] text-slate-600 leading-snug">
-                <div>
+                <div data-i18n="skill1">
                   <strong class="text-slate-900 font-semibold">P&L-Führung & Restrukturierung:</strong> Turnaround stagnierender Einheiten, Working-Capital- und Kostenoptimierung, Sanierung unrentabler Promotions.
                 </div>
-                <div>
+                <div data-i18n="skill2">
                   <strong class="text-slate-900 font-semibold">Kommerzielles Wachstum & Skalierung:</strong> End-to-End-Steuerung von Marketing und Vertrieb, Senkung der CAC, Steigerung des Customer Lifetime Value.
                 </div>
-                <div>
+                <div data-i18n="skill3">
                   <strong class="text-slate-900 font-semibold">Transformation & Teamführung:</strong> Führung heterogener Organisationen (bis 200+ Mitarbeitende), Steuerung weltweiter Agenturen, Multi-Stakeholder-Alignment.
                 </div>
               </div>
@@ -614,11 +627,11 @@
         <!-- 3. Technologie-Stack (Horizontaler Abschnitt in Pill-Optik) -->
         <section aria-labelledby="tech-title" class="border border-slate-200 rounded px-2.5 py-1.5 bg-slate-50/70 shadow-xs">
           <div class="flex items-center gap-2">
-            <h3 id="tech-title" class="text-[7.5pt] font-bold uppercase tracking-wider text-slate-500 shrink-0">
+            <h3 id="tech-title" data-i18n="techTitle" class="text-[7.5pt] font-bold uppercase tracking-wider text-slate-500 shrink-0">
               Data Science & KI Stack:
             </h3>
             <div class="flex flex-wrap items-center gap-1 flex-1">
-              <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">GenAI & LLM-Architekturen</span>
+              <span data-i18n="techGenAi" class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">GenAI & LLM-Architekturen</span>
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">RAG & Agentic AI</span>
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Machine Learning & MLOps</span>
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Python & PyTorch</span>
@@ -626,7 +639,7 @@
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Predictive Analytics</span>
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Data & AI Governance (EU AI Act)</span>
               <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">SQL, R & Modern Data Stack</span>
-              <span class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Power BI Modellierung</span>
+              <span data-i18n="techPowerBi" class="bg-white text-slate-800 text-[7pt] font-semibold px-2 py-0.5 rounded-full border border-slate-200 shadow-2xs">Power BI Modellierung</span>
             </div>
           </div>
         </section>
@@ -635,30 +648,270 @@
 
       <!-- Page 2 Footer (zentrierte Seitenzahl) -->
       <footer class="border-t border-slate-200 pt-1 flex justify-center items-center text-[8pt] text-slate-400 font-medium tracking-wide">
-        <span>Seite 2 von 2</span>
+        <span data-i18n="page2Footer">Seite 2 von 2</span>
       </footer>
 
     </section>
 
   </main>
 
-  <!-- Dynamisches Druckdatum (Stand: DD. MMM YYYY) -->
+  <!-- Dynamisches Druckdatum & Sprachsteuerung -->
   <script>
+    const i18n = {
+      de: {
+        title: "Andreas Barth | Interim Executive für profitables Wachstum und KI-Transformation",
+        photoLabel: "Foto",
+        printBtn: "PDF drucken / speichern",
+        leadRole: "Interim Executive für profitables Wachstum und KI-Transformation",
+        targetRoles: "Zielrollen: Interim CMO/CDO · Geschäftsleitung · Transformationsleitung",
+        profileBadge: "Executive Profil",
+        contactDeployment: "Einsatz: DACH & international (vor Ort & remote) · Verfügbarkeit: ab November 2026",
+        execSummaryTitle: "Executive Summary",
+        execSummaryText: "Verbindet über 20 Jahre kommerzielle Führungserfahrung mit fundierter Data-Science-Qualifikation (M.Sc.) und praktischer Erfahrung in der Entwicklung von KI-Produkten. Übersetzt unternehmerische Herausforderungen in datengetriebene Entscheidungen und konkrete KI-Anwendungen – mit Fokus auf profitables Wachstum, operative Effizienz und Cashflow. Führungserfahrung mit P&amp;L- und Marketingverantwortung in Konsumgüter- und Filialunternehmen (FMCG, Gastronomie, Retail, Leisure), unter anderem als Chief Marketing Officer bei Burger King North America und Fitness First Germany. Erprobt in der Übernahme interimistischer C-Level-Verantwortung und im ertragsorientierten Turnaround stagnierender Geschäftsmodelle. Verbindet strategische Steuerung mit eigener technischer Umsetzungskompetenz.",
+        kpi1Value: "8 Mrd. $+",
+        kpi1Title: "Systemumsatz & P&L",
+        kpi1Desc: "<strong>Burger King North America</strong> (SVP & CMO): P&L-Turnaround & Frequenzsteigerung in >7.000 Filialen",
+        kpi2Value: "300 Mio. $+",
+        kpi2Title: "Marketingbudget",
+        kpi2Desc: "<strong>Burger King North America</strong> (SVP & CMO): Neuausrichtung der Marken-, Preis- und Promotionstrategie",
+        kpi3Value: "&gt;20 %",
+        kpi3Title: "Neuvertragszuwachs",
+        kpi3Desc: "<strong>Fitness First Germany</strong> (CMO / GL): 300.000+ qualifizierte Leads p.a. via digitaler Performance-Kanäle",
+        casesTitle: "Ausgewählte Erfolgsfälle",
+        casesSubtitle: "Ausgangslage · Eigener Beitrag · Ergebnis",
+        case1Title: "september Strategie & Forschung GmbH (Köln) · Digital Transformation Architect u. General Manager",
+        case1Badge: "KI-Transformation & Plattform-Skalierung (Interim- / Transformationsmandat · 04/2021–12/2025)",
+        case1P1: "<strong class=\"text-slate-900 font-semibold\">Ausgangslage:</strong> Analoge, zeitintensive Werbewirkungsforschung sollte in ein skalierbares, standardisiertes Datenprodukt überführt werden.",
+        case1P2: "<strong class=\"text-slate-900 font-semibold\">Eigener Beitrag:</strong> Konzeption und Product Ownership der proprietären Plattform „Emotion Engine“; Steuerung von Modelltraining und digitalem Framework; anschließende gemeinsame Leitung der neuen Business Unit als General Manager.",
+        case1P3: "<strong class=\"text-slate-900 font-semibold\">Ergebnis:</strong> Marktreife digitale KI-Analyseprodukte für Markenartikler und Agenturen; Etablierung als eine von drei eigenständigen Business Units des Unternehmens.",
+        case2Title: "Burger King Corporation (Miami, USA) · Senior Vice President Global Brand & CMO North America",
+        case2Badge: "Kommerzielles Wachstum & Turnaround (Festanstellung / Executive Management · 2010–2011)",
+        case2P1: "<strong class=\"text-slate-900 font-semibold\">Ausgangslage:</strong> Über drei Jahre anhaltender Gästeschwund und Margenerosion durch unrentable Preispromotions in über 7.000 Restaurants in Nordamerika.",
+        case2P2: "<strong class=\"text-slate-900 font-semibold\">Eigener Beitrag:</strong> Strategische Neuausrichtung des Marken- und Produktportfolios; radikaler Umbau der Preispromotions auf ertragsstarke Plattformen („King des Monats“); Etablierung einheitlicher Marketingprozesse in den Kernmärkten.",
+        case2P3: "<strong class=\"text-slate-900 font-semibold\">Ergebnis:</strong> Nachhaltiger Turnaround des operativen Ergebnisses (Restaurant Operating Profit) und Cashflows; Trendumkehr mit messbarem Gästewachstum und Frequenzsteigerung.",
+        industryTitle: "Branchenschwerpunkte & Sektor-Expertise",
+        industrySubtitle: "Multimarkt- & B2C-/B2B-Erfahrung",
+        ind1Title: "FMCG &<br>Konsumgüter",
+        ind1Sub: "Food, CPG, Marken",
+        ind2Title: "System-<br>gastronomie",
+        ind2Sub: "Filial- & Multi-Stores",
+        ind3Title: "Retail &<br>E-Commerce",
+        ind3Sub: "Omnichannel & D2C",
+        ind4Title: "Leisure &<br>Lifestyle",
+        ind4Sub: "Resorts, Clubs, Fitness",
+        ind5Title: "Data &<br>KI-Produkte",
+        ind5Sub: "Analytics, SaaS, Research",
+        page1Footer: "Seite 1 von 2",
+        expTitle: "Beruflicher Werdegang & Mandate",
+        st1Title: "STRATEGIEPILOT (seit 2011) & Bavaria Consulting GmbH (seit 2016)",
+        st1Badge: "Beratung & Mandate",
+        st1Role: "Management Advisor & Partner",
+        st1Desc: "Mandate für Konsumgüterhersteller, Handel und Finanzdienstleister zu Portfoliosteuerung, Category Management und datengestützten Geschäftsmodellen.<br><strong>Ausgewählte Projekte:</strong> Pilotierung eines KI-gestützten Dokumentenmanagementsystems bei einer deutschen Automobil-Bank · KI-gestützte Markteintritts- und Positionierungsstrategie für den deutschen Eiscrememarkt eines weltweit führenden Süßwarenherstellers.",
+        st2Title: "september Strategie & Forschung GmbH (Köln)",
+        st2Badge: "04/2021–12/2025 · Transformationsmandat",
+        st2Role: "Digital Transformation Architect & Product Owner u. General Manager „Emotion Engine“",
+        st2Desc: "<strong>Verantwortung:</strong> Technische und fachliche Gesamtverantwortung für Plattform-Framework, Modelltraining und Überführung in skalierbare Kundenprodukte; Co-Leitung der neuen Business Unit.<br><strong>Ergebnis:</strong> Erfolgreicher Aufbau der Plattform zu einer von drei Kern-Geschäftseinheiten; Verkürzung der Analysezyklen für Werbewirkungsstudien.",
+        st3Title: "Fitness First Germany GmbH (Frankfurt am Main)",
+        st3Badge: "10/2013–10/2015 · Festanstellung",
+        st3Role: "Chief Marketing Officer | Mitglied der Geschäftsleitung",
+        st3Desc: "<strong>Verantwortung:</strong> 150 Mio. €+ Unternehmensumsatz, 5 Mio. €+ Marketingbudget; Führung von Marketing, PR und digitalem Lead-Management; Berichtsweg an Managing Director.<br><strong>Ergebnis:</strong> Ganzheitlicher Marken-Relaunch; Umbau der Akquisitionskanäle auf digitale Performance-Systeme (Web, App, SEO/SEM); Senkung der CAC bei >20 % mehr Leads und Neuverträgen (300k+ Leads p.a.).",
+        st4Title: "Burger King Corporation (Miami, USA & München, DACH)",
+        st4Badge: "2009–2011 · Festanstellung",
+        st4Role: "Senior Vice President Global Brand & CMO North America (zuvor VP Marketing US & Director Marketing Central Europe)",
+        st4Desc: "<strong>Verantwortung:</strong> 8 Mrd. $+ Systemumsatz, 300 Mio. $+ Marketingbudget, >7.000 Restaurants; Berichtsweg an President BK North America / COO EMEA.<br><strong>Ergebnis:</strong> Operativer Turnaround nach mehr als 3 Jahren Verlusten; Etablierung margenstarker Preis-Promotion-Plattformen („King des Monats“); weltweite Marketingprozesse in den Top-10-Märkten.",
+        st5Title: "LEGOLAND Deutschland Resort / Merlin Entertainments (Günzburg)",
+        st5Badge: "05/2008–10/2009 · Festanstellung",
+        st5Role: "Director Marketing & Sales",
+        st5Desc: "<strong>Verantwortung:</strong> 50 Mio. €+ P&L, disziplinarische Führung von 18 Mitarbeiter:innen; Berichtsweg an General Manager.<br><strong>Ergebnis:</strong> EBITDA-Turnaround durch zweistelliges Top-Line-Wachstum; Eröffnung des ersten weltweiten LEGOLAND Holiday Villages; historische Rekordauslastung im Übernachtungsresort.",
+        st6Title: "McDonald’s Deutschland Inc. (München)",
+        st6Badge: "2003–2008 · Festanstellung",
+        st6Role: "Department Head Marketing (zuvor Manager Marketing Kids & Family)",
+        st6Desc: "<strong>Verantwortung:</strong> >600 Mio. € Segmentumsatz; Mitglied des EMEA Family Marketing Boards (>40 Länder); Kernteam der weltweiten „I’m lovin’ it“-Positionierung.<br><strong>Ergebnis:</strong> Signifikanter Zuwachs des Gästeaufkommens 2004–2008; Auszeichnung mit dem „Global Best Marketing Excellence Award“.",
+        earlierTitle: "Frühere Stationen & Beratung:",
+        earlierDanone: "Brand Manager Dany Sahne & FruchtZwerge · Zweistelliges Volumenwachstum",
+        earlierEsprit: "Management Consultant · SAP-Einführungen, Controlling & P&L-Rechnung",
+        eduTitle: "Ausbildung & Qualifikation",
+        eduMscTitle: "M.Sc. Data Science",
+        eduMscYear: "(Abschluss 2021)",
+        eduMscSub: "Hochschule Albstadt-Sigmaringen · Prädikatsexamen",
+        eduDiplTitle: "Dipl.-Kaufmann Univ.",
+        eduDiplYear: "(Abschluss 1997)",
+        eduDiplSub: "Ludwig-Maximilians-Universität München · Prädikatsexamen",
+        langLabel: "Sprachen:",
+        langText: "Deutsch · Englisch (verhandlungssicher) · Französisch & Spanisch (Grundkenntnisse)",
+        skillsTitle: "Ausgewählte Führungskompetenzen",
+        skill1: "<strong>P&L-Führung & Restrukturierung:</strong> Turnaround stagnierender Einheiten, Working-Capital- und Kostenoptimierung, Sanierung unrentabler Promotions.",
+        skill2: "<strong>Kommerzielles Wachstum & Skalierung:</strong> End-to-End-Steuerung von Marketing und Vertrieb, Senkung der CAC, Steigerung des Customer Lifetime Value.",
+        skill3: "<strong>Transformation & Teamführung:</strong> Führung heterogener Organisationen (bis 200+ Mitarbeitende), Steuerung weltweiter Agenturen, Multi-Stakeholder-Alignment.",
+        techTitle: "Data Science & KI Stack:",
+        techGenAi: "GenAI & LLM-Architekturen",
+        techPowerBi: "Power BI Modellierung",
+        page2Footer: "Seite 2 von 2"
+      },
+      en: {
+        title: "Andreas Barth | Interim Executive for Profitable Growth & AI Transformation",
+        photoLabel: "Photo",
+        printBtn: "Print / Save PDF",
+        leadRole: "Interim Executive for Profitable Growth & AI Transformation",
+        targetRoles: "Target Roles: Interim CMO/CDO · Managing Director / GM · Transformation Lead",
+        profileBadge: "Executive Profile",
+        contactDeployment: "Deployment: DACH & International (On-site & Remote) · Availability: from November 2026",
+        execSummaryTitle: "Executive Summary",
+        execSummaryText: "Combines over 20 years of commercial executive leadership with advanced qualifications in Data Science (M.Sc.) and hands-on experience in building enterprise AI products. Translates strategic business challenges into data-driven decisions and scalable AI solutions—focused on profitable top-line growth, operational efficiency, and cash flow. Extensive P&L and marketing track record across consumer goods and multi-unit retail networks (FMCG, Food Service, Retail, Leisure), including serving as Chief Marketing Officer at Burger King North America and Fitness First Germany. Proven in steering interim C-level mandates and orchestrating bottom-line turnarounds for stagnating business models. Bridges high-level strategic governance with deep technical execution capability.",
+        kpi1Value: "$8B+",
+        kpi1Title: "System Sales & P&L",
+        kpi1Desc: "<strong>Burger King North America</strong> (SVP & CMO): P&L turnaround & guest traffic growth across >7,000 restaurants",
+        kpi2Value: "$300M+",
+        kpi2Title: "Marketing Budget",
+        kpi2Desc: "<strong>Burger King North America</strong> (SVP & CMO): Strategic realigning of brand, pricing, and promotion architecture",
+        kpi3Value: ">20%",
+        kpi3Title: "New Membership Growth",
+        kpi3Desc: "<strong>Fitness First Germany</strong> (CMO / Board): 300,000+ qualified leads p.a. via digital performance channels",
+        casesTitle: "Selected Case Studies",
+        casesSubtitle: "Initial Situation · Action & Contribution · Results",
+        case1Title: "september Strategie & Forschung GmbH (Cologne) · Digital Transformation Architect & General Manager",
+        case1Badge: "AI Transformation & Platform Scaling (Interim / Transformation Mandate · 04/2021–12/2025)",
+        case1P1: "<strong class=\"text-slate-900 font-semibold\">Challenge:</strong> Traditional, labor-intensive advertising impact research needed to be transformed into a scalable, standardized data product.",
+        case1P2: "<strong class=\"text-slate-900 font-semibold\">Action:</strong> Conceptual design and Product Ownership of the proprietary \"Emotion Engine\" platform; led model training and digital architecture; co-led the newly formed Business Unit as General Manager.",
+        case1P3: "<strong class=\"text-slate-900 font-semibold\">Impact:</strong> Enterprise-ready AI analytics solutions for leading consumer brands and agencies; established as one of the company's three core business units.",
+        case2Title: "Burger King Corporation (Miami, USA) · Senior Vice President Global Brand & CMO North America",
+        case2Badge: "Commercial Growth & Turnaround (Permanent Executive Role · 2010–2011)",
+        case2P1: "<strong class=\"text-slate-900 font-semibold\">Challenge:</strong> Three consecutive years of traffic decline and margin erosion driven by unsustainable price promotions across >7,000 North American restaurants.",
+        case2P2: "<strong class=\"text-slate-900 font-semibold\">Action:</strong> Comprehensive realignment of brand and product portfolio; overhauled discount promotions towards high-margin value platforms; instituted standardized marketing governance across core markets.",
+        case2P3: "<strong class=\"text-slate-900 font-semibold\">Impact:</strong> Sustainable turnaround of Restaurant Operating Profit (ROP) and cash flow; reversed traffic trend with measurable guest growth and increased visit frequency.",
+        industryTitle: "Industry Focus & Sector Expertise",
+        industrySubtitle: "Multi-Market & B2C/B2B Track Record",
+        ind1Title: "FMCG &<br>Consumer Goods",
+        ind1Sub: "Food, CPG, Brands",
+        ind2Title: "System Gastronomy<br>& Food Service",
+        ind2Sub: "Multi-Unit & Franchising",
+        ind3Title: "Retail &<br>E-Commerce",
+        ind3Sub: "Omnichannel & D2C",
+        ind4Title: "Leisure &<br>Lifestyle",
+        ind4Sub: "Resorts, Clubs, Fitness",
+        ind5Title: "Data &<br>AI Products",
+        ind5Sub: "Analytics, SaaS, Research",
+        page1Footer: "Page 1 of 2",
+        expTitle: "Professional Career & Advisory Mandates",
+        st1Title: "STRATEGIEPILOT (since 2011) & Bavaria Consulting GmbH (since 2016)",
+        st1Badge: "Advisory & Mandates",
+        st1Role: "Management Advisor & Partner",
+        st1Desc: "Advisory mandates for consumer goods manufacturers, retail, and financial services on portfolio strategy, category management, and data-driven business models.<br><strong>Selected Projects:</strong> Piloted an AI-powered document management system for a major German captive auto bank · AI-driven market entry and positioning strategy for the German ice cream market on behalf of a leading global confectionery group.",
+        st2Title: "september Strategie & Forschung GmbH (Cologne)",
+        st2Badge: "04/2021–12/2025 · Transformation Mandate",
+        st2Role: "Digital Transformation Architect & Product Owner / General Manager \"Emotion Engine\"",
+        st2Desc: "<strong>Scope:</strong> End-to-end technical and functional ownership of the platform framework, model training, and productization into scalable client solutions; co-leadership of the new business unit.<br><strong>Impact:</strong> Scaled platform into one of the firm's three core business divisions; significantly shortened analysis cycles for advertising impact research.",
+        st3Title: "Fitness First Germany GmbH (Frankfurt am Main)",
+        st3Badge: "10/2013–10/2015 · Executive Role",
+        st3Role: "Chief Marketing Officer | Executive Board Member",
+        st3Desc: "<strong>Scope:</strong> €150M+ revenue responsibility, €5M+ marketing budget; led marketing, PR, and digital lead generation; reported to Managing Director.<br><strong>Impact:</strong> Comprehensive brand relaunch; restructured customer acquisition to digital performance channels (web, app, SEO/SEM); reduced CAC while growing leads and new memberships by >20% (300k+ qualified leads p.a.).",
+        st4Title: "Burger King Corporation (Miami, USA & Munich, DACH)",
+        st4Badge: "2009–2011 · Executive Role",
+        st4Role: "Senior Vice President Global Brand & CMO North America (previously VP Marketing US & Director Marketing Central Europe)",
+        st4Desc: "<strong>Scope:</strong> $8B+ system sales, $300M+ marketing budget, >7,000 restaurants; reported to President BK North America / COO EMEA.<br><strong>Impact:</strong> Operational turnaround following 3+ years of losses; introduced high-margin price promotion platforms (\"King of the Month\"); streamlined global marketing processes across top 10 markets.",
+        st5Title: "LEGOLAND Deutschland Resort / Merlin Entertainments (Guenzburg)",
+        st5Badge: "05/2008–10/2009 · Executive Role",
+        st5Role: "Director Marketing & Sales",
+        st5Desc: "<strong>Scope:</strong> €50M+ P&L responsibility, direct management of 18 staff; reported to General Manager.<br><strong>Impact:</strong> EBITDA turnaround via double-digit top-line revenue growth; inaugurated the world's first LEGOLAND Holiday Village; achieved historic peak occupancy in overnight resort hospitality.",
+        st6Title: "McDonald's Germany Inc. (Munich)",
+        st6Badge: "2003–2008 · Management Role",
+        st6Role: "Department Head Marketing (previously Manager Marketing Kids & Family)",
+        st6Desc: "<strong>Scope:</strong> >€600M segment revenue; Member of the EMEA Family Marketing Board (>40 countries); core team for global \"I'm lovin' it\" positioning rollout.<br><strong>Impact:</strong> Significant guest traffic expansion 2004–2008; honored with the \"Global Best Marketing Excellence Award\".",
+        earlierTitle: "Earlier Career & Consulting:",
+        earlierDanone: "Brand Manager Dany Sahne & FruchtZwerge · Double-digit volume growth",
+        earlierEsprit: "Management Consultant · SAP implementations, controlling & P&L management accounting",
+        eduTitle: "Education & Qualifications",
+        eduMscTitle: "M.Sc. in Data Science",
+        eduMscYear: "(Graduated 2021)",
+        eduMscSub: "Albstadt-Sigmaringen University · Graduated with Distinction",
+        eduDiplTitle: "Dipl.-Kaufmann Univ.",
+        eduDiplYear: "(equiv. M.Sc. Business · 1997)",
+        eduDiplSub: "Ludwig-Maximilians-University Munich · Graduated with Honors",
+        langLabel: "Languages:",
+        langText: "German (Native) · English (Fluent / Full Business) · French & Spanish (Basic)",
+        skillsTitle: "Core Executive Competencies",
+        skill1: "<strong>P&L Leadership & Restructuring:</strong> Bottom-line turnarounds of stagnating units, working capital & cost optimization, restructuring of unprofitable promotional frameworks.",
+        skill2: "<strong>Commercial Growth & Scaling:</strong> End-to-end commercial governance across marketing and sales, lowering CAC, maximizing Customer Lifetime Value (CLV).",
+        skill3: "<strong>Transformation & Team Leadership:</strong> Leading cross-functional organizations (up to 200+ people), steering international agency rosters, driving multi-stakeholder executive alignment.",
+        techTitle: "Data Science & AI Stack:",
+        techGenAi: "GenAI & LLM Architectures",
+        techPowerBi: "Power BI Modeling",
+        page2Footer: "Page 2 of 2"
+      }
+    };
+
+    let currentLang = 'de';
+
     function updatePrintDate() {
       const el = document.getElementById('print-date');
       if (el) {
         const now = new Date();
-        const d = String(now.getDate()).padStart(2, '0');
-        const months = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'];
-        const m = months[now.getMonth()];
         const y = now.getFullYear();
-        el.textContent = 'Stand: ' + d + '. ' + m + ' ' + y;
+        if (currentLang === 'en') {
+          const monthsEn = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
+          const m = monthsEn[now.getMonth()];
+          el.textContent = 'As of ' + m + ' ' + y;
+        } else {
+          const d = String(now.getDate()).padStart(2, '0');
+          const monthsDe = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'];
+          const m = monthsDe[now.getMonth()];
+          el.textContent = 'Stand: ' + d + '. ' + m + ' ' + y;
+        }
       }
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', updatePrintDate);
-    } else {
+
+    function setLanguage(lang) {
+      if (lang !== 'de' && lang !== 'en') lang = 'de';
+      currentLang = lang;
+
+      const toggle = document.getElementById('toggleLang');
+      if (toggle) toggle.checked = (lang === 'en');
+
+      const lblDe = document.getElementById('label-lang-de');
+      const lblEn = document.getElementById('label-lang-en');
+      if (lblDe && lblEn) {
+        if (lang === 'en') {
+          lblDe.className = 'text-xs font-semibold text-slate-400 cursor-pointer transition-colors hover:text-slate-600';
+          lblEn.className = 'text-xs font-bold text-blue-900 cursor-pointer transition-colors';
+        } else {
+          lblDe.className = 'text-xs font-bold text-blue-900 cursor-pointer transition-colors';
+          lblEn.className = 'text-xs font-semibold text-slate-400 cursor-pointer transition-colors hover:text-slate-600';
+        }
+      }
+
+      document.documentElement.lang = lang;
+      document.title = i18n[lang].title;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
       updatePrintDate();
+
+      try {
+        localStorage.setItem('preferred_lang', lang);
+      } catch (e) {}
+    }
+
+    function initLanguage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+      let savedLang = null;
+      try {
+        savedLang = localStorage.getItem('preferred_lang');
+      } catch(e) {}
+
+      const initialLang = (langParam === 'en' || langParam === 'de') ? langParam : (savedLang || 'de');
+      setLanguage(initialLang);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLanguage);
+    } else {
+      initLanguage();
     }
     window.addEventListener('beforeprint', updatePrintDate);
   </script>
